@@ -1,0 +1,64 @@
+/* src/styles/tailwind.css */
+:root {
+    --lightmode: {
+      
+      --primary-color: #9EA1A2;
+      --subtitle: #11181C;
+      --small-text: #AAAEB2;
+      --some-custom-heading: #0072F5;
+      --input-background: #F1F3F5;
+      --heading:black;
+     
+    };
+  
+    --darkmode: {
+      --heading:black;
+      --primary-color: #9BA1A6;
+      --subtitle: #ECEDEE;
+      --small-text: #AAAEB2;
+      --some-custom-heading: #0072F5;
+      --input-background: #16181A;
+    };
+  
+    /* Set default values for light mode */
+    --heading: var(--lightmode--heading);
+    --primary-color: var(--lightmode--primary-color);
+    --subtitle: var(--lightmode--subtitle);
+    --small-text: var(--lightmode--small-text);
+    --some-custom-heading: var(--lightmode--some-custom-heading);
+    --input-background: var(--lightmode--input-background);
+  }
+  
+  /* Dark mode */
+  [data-theme='dark'] {
+    --heading: var(--darkmode--heading);
+    --primary-color: var(--darkmode--primary-color);
+    --subtitle: var(--darkmode--subtitle);
+    --small-text: var(--darkmode--small-text);
+    --some-custom-heading: var(--darkmode--some-custom-heading);
+    --input-background: var(--darkmode--input-background);
+  }
+  
+  /* Tailwind styles using custom properties */
+  .text-primary {
+    color: var(--primary-color);
+  }
+  .heading{
+    color: var(--heading);
+  }
+  .subtitle {
+    color: var(--subtitle);
+  }
+  
+  .small-text {
+    color: var(--small-text);
+  }
+  
+  .some-custom-heading {
+    color: var(--some-custom-heading);
+  }
+  
+  .input-background {
+    background-color: var(--input-background);
+  }
+  
