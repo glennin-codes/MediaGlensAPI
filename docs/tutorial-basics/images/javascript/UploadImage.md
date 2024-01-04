@@ -28,8 +28,11 @@ const userId = 'your-user-id';
 const formData = new FormData();
 formData.append('images', file1); // Replace file1 with your image file
 formData.append('images', file2); // Replace file2 with another image file
+//you can include as much customization as you want
+//width=300;  
+//height=400;
 
-fetch('https://your-api-url/api/upload-images?width=500&height=300&quality=80&crop=10,10,200,200&progressive=true&grayscale=false&rotate=90&format=JPEG', {
+fetch('https://your-api-url/api/upload-images?width=500&height=300&quality=80&crop=10,10,200,200&progressive=true&grayscale=true&rotate=90&format=JPEG', {
   method: 'PUT',
   headers: {
     'x-api-key': apiKey,
@@ -45,7 +48,7 @@ fetch('https://your-api-url/api/upload-images?width=500&height=300&quality=80&cr
 
 Upon successful upload, the API responds with a JSON object containing details of the processed images. Here's an example:
 
-```json
+```json title="result"
 {
   "processedImages": [
     {

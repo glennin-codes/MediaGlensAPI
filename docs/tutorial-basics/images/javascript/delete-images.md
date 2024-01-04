@@ -22,7 +22,7 @@ Upon successful deletion, the API responds with a JSON object containing a succe
 ## Delete multiple images
 Delete one or more images by their keys. The request should contain an `array` of image keys.
 
-```javascript
+```javascript title="Delete multiple"
 const apiKey = 'your-api-key';
 const userId = 'your-user-id';
 const imageKeys = ['d615f397-8462-47e4-812b-20d0fd3041d7-hero.webp', '43721e8f-3fcc-4297-9ff4-3424a90c1af0-Textile_workshop.jpg'];
@@ -41,7 +41,7 @@ fetch('https://your-api-url/api/delete-images', {
   .catch(error => console.error('Error:', error));
 ```
 ## Delete just a single image
-```javascript
+```javascript title="Delete single image"
 const apiKey = 'your-api-key';
 const userId = 'your-user-id';
 const singleImageKey = 'd615f397-8462-47e4-812b-20d0fd3041d7-hero.jpg';
