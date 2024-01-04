@@ -2,46 +2,26 @@
 sidebar_position: 1
 ---
 
+
 # mediaGlens API
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the mediaGlens API documentation! In just a few minutes, you'll learn how to harness the power of media optimization and secure file storage for your applications.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+To get started with mediaGlens API, follow these simple steps:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### What You'll Need
 
-### What you'll need
+Before diving into mediaGlens API usage, make sure you have the following prerequisites:
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- **API Key:** Obtain your unique API key by signing up on our platform.
+- **User ID:** Similarly, get your User ID upon registration.
 
-## Generate a new site
+Head over to [mediaGlens Signup](#) to create an account and retrieve your API Key and User ID.
 
-Generate a new Docusaurus site using the **classic template**.
+> Note: Familiarize yourself with basic concepts of making HTTP requests, such as POST, PUT, and DELETE operations. While you can use mediaGlens API with various programming languages, having a basic understanding of RESTful API communication will enhance your experience.
 
-The classic template will automatically be added to your project after you run the command:
+If you need a quick refresher on making HTTP requests, you can find excellent resources online to get started.
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## Happy coding
