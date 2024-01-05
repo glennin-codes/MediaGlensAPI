@@ -5,11 +5,11 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
 
   title: 'MediaGlens',
-  tagline: 'We make things work',
+  tagline: ' Cloud Application  covering everything from files,image and video uploads, storage, manipulations, optimizations to delivery.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://mediaglens.vercel.app/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -45,7 +45,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/glennin-codes/MediaGlensAPI',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -79,7 +79,7 @@ const config: Config = {
           to:'/signup', label:'signup',position:'right'
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/glennin-codes/MediaGlensAPI',
           label: 'GitHub',
           position: 'right',
         },
@@ -102,15 +102,15 @@ const config: Config = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://github.com/glennin-codes/MediaGlensAPI',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discordapp.com/invite/mediaglens',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/mediaglens',
             },
           ],
         },
@@ -123,7 +123,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/glennin-codes/MediaGlensAPI',
             },
           ],
         },
