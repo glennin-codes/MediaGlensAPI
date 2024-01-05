@@ -1,10 +1,11 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Upload Images
+# Upload Images using Python
 
 To upload images, use the `/api/upload-images` endpoint. You can upload multiple images in a single request. Make sure to replace `your-api-key` and `your-user-id` with your actual API key and user ID.
+#### aplies to both flask and django
 
 ## Request Parameters
 
@@ -18,6 +19,7 @@ The endpoint supports the following query parameters:
 - `grayscale` (optional): Convert the image to grayscale (default is false).
 - `rotate` (optional): Rotation angle of the image.
 - `format` (optional): Output format of the image (default is the original input format). Supported formats: JPG, JPEG, PNG, WebP, TIFF, and AVIF.
+
 
 ## Uploading code example
 ```python title="using flask/django"
