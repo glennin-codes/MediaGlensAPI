@@ -6,13 +6,14 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+import React from 'react';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className="homePage">
     <div className="mx-auto text-center py-24">
-      <h1 className="text-4xl py-0 font-bold text-white">{siteConfig.title}</h1>
+      <Heading className="text-4xl py-0 font-bold text-white" as={'h1'}>{siteConfig.title}</Heading>
       <p className="text-xl py-2 text-white">{siteConfig.tagline}</p>
 
       <div className="py-2">
