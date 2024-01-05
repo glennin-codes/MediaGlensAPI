@@ -10,7 +10,7 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className="bg-blue-500">
+    <header className="homePage">
     <div className="mx-auto text-center py-24">
       <h1 className="text-4xl py-0 font-bold text-white">{siteConfig.title}</h1>
       <p className="text-xl py-2 text-white">{siteConfig.tagline}</p>

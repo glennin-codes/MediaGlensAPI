@@ -63,3 +63,6 @@
 .input-background {
   background-color: var(--input-background);
 }
+.homePage{
+background-color: var(--ifm-color-primary-darker);
+}
