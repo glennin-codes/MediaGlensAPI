@@ -112,3 +112,5 @@ Upon successful upload, the API responds with a JSON object containing details o
   ]
 }
 ```
+
+```A more efficient and powerful option is to allow your users to upload images and videos in your client-side code directly from the browser to MediaGlens instead of going through your servers. This method allows for faster uploading and a better user experience. It also reduces load from your servers and reduces the complexity of your node js applications.```You can use [javascript example](http://localhost:3000/docs/tutorial-basics/images/javascript/UploadImage)
