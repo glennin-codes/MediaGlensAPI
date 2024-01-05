@@ -57,9 +57,8 @@ class ImageUploadController {
     // private static final int width = 300;
     // private static final int height = 400;
 
-
     // Set your API endpoint URL
-    private static final String apiUrl = "https://your-api-url/api/upload-images";
+    private static final String apiUrl = "https://mediaGlens.io/api/upload-images";
 
     @PostMapping
     public String handleImageUpload(@RequestParam("images") MultipartFile[] images) throws IOException {
@@ -75,7 +74,6 @@ class ImageUploadController {
                 }
             });
         }
-
            // Make a PUT request to upload the images with query parameters
     String response = restTemplate.putForObject(apiUrl + "?crop={crop}&rotate={rotate}&quality={quality}", formData, String.class, apiKey, userId, crop, rotate, quality);
 
