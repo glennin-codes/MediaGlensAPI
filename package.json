@@ -17,6 +17,8 @@
   "dependencies": {
     "@docusaurus/core": "3.0.1",
     "@docusaurus/preset-classic": "3.0.1",
+    "@heroicons/react": "^2.1.1",
+    "@material-tailwind/react": "^2.1.8",
     "@mdx-js/react": "^3.0.0",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",

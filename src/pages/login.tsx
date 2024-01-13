@@ -9,7 +9,7 @@ const Login: React.FC = () => {
     <Layout>
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md">
-        <div className="text-2xl  text-center heading font-semibold text-primary mb-4">Login</div>
+      00/ <div className="text-2xl  text-center heading font-semibold text-primary mb-4">Login</div>
         
         {/* Input fields */}
         <div className="mb-4">
