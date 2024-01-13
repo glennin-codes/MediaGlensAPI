@@ -16,12 +16,20 @@ import {
   ShoppingBagIcon,
   UserCircleIcon,
   Cog6ToothIcon,
-  InboxIcon,
   WalletIcon,
   PowerIcon,
 TableCellsIcon,
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import StorageInfoCard from "@site/src/components/Annalytics";
+import BilllingsAndSubscription from "@site/src/components/BillingAndSubscription";
+import Profile from "@site/src/components/Profile";
+import Settings from "@site/src/components/settings";
+import Logout from "@site/src/components/logout";
+import BandwidthUsage from "@site/src/components/BandWidthUsage";
+import ImagesGallery from "@site/src/components/MediaLibrary/Images";
+import VideosGallery from "@site/src/components/MediaLibrary/Videos";
+import FilesGallery from "@site/src/components/MediaLibrary/Files";
 
 type SidebarItem = {
   id: number;
@@ -73,12 +81,62 @@ const nonAccordionItems: SidebarItem[] = [
 
 function SidebarWithContentSeparator() {
   const [open, setOpen] = useState<number>(0);
+  const [selectedContent, setSelectedContent] = useState<React.ReactNode >(<StorageInfoCard />);
 
+  
   const handleOpen = (value: number) => {
     setOpen((prevOpen) => (prevOpen === value ? 0 : value));
-  };
+    // // When opening an accordion, set the default content based on the first subitem
+    // if (accordionItems.find((item) => item.id === value)?.subItems) {
+    //   setSelectedContent(<StorageInfoCard />);
+    // }
+
+}
+const renderAccordionContent = (subItem: string) => {
+  // Render the corresponding component based on the selected subitem
+  switch (subItem) {
+    case "Analytics":
+      setSelectedContent( <StorageInfoCard />);
+      break;
+    case "Bandwidth usage":
+      setSelectedContent( <BandwidthUsage />);
+      break;
+    case "Images":
+      setSelectedContent(<ImagesGallery/>);
+      break;
+    case "Videos":
+      setSelectedContent( <VideosGallery />);
+      break;
+    case "Files":
+      setSelectedContent( <FilesGallery />);
+      break;
+      default:
+        break;
+  }
+};
+const handleItemClick = (label: string) => {
+ 
+  switch (label) {
+    case "Billing and Subscription":
+      setSelectedContent(<BilllingsAndSubscription />);
+      break;
+    case "Profile":
+      setSelectedContent(<Profile />);
+      break;
+    case "Settings":
+      setSelectedContent(<Settings />);
+      break;
+    case "Log Out":
+      setSelectedContent(<Logout />);
+      break;
+    default:
+      break;
+  }
+};
+
 
   return (
+    <div className="flex">
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
         <Typography variant="h5" color="blue-gray">
@@ -111,7 +169,7 @@ function SidebarWithContentSeparator() {
               <AccordionBody className="py-1">
                 <List className="p-0">
                   {item.subItems.map((subItem, index) => (
-                    <ListItem key={index}>
+                    <ListItem onClick={()=>renderAccordionContent(subItem)}  key={index}>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                       </ListItemPrefix>
@@ -125,13 +183,21 @@ function SidebarWithContentSeparator() {
         ))}
         <hr className="my-2 border-blue-gray-50" />
         {nonAccordionItems.map((item) => (
-          <ListItem key={item.id}>
-            <ListItemPrefix>{item.icon}</ListItemPrefix>
+          <ListItem  onClick={()=>handleItemClick(item.label)} key={item.id}>
+            <ListItemPrefix
+           
+            >{item.icon}</ListItemPrefix>
             {item.label}
           </ListItem>
         ))}
       </List>
     </Card>
+    <div className="flex-1 p-4">
+       
+        {selectedContent}
+      </div>
+    </div>
+
   );
 }
 
