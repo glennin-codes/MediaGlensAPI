@@ -30,6 +30,7 @@ import BandwidthUsage from "@site/src/components/BandWidthUsage";
 import ImagesGallery from "@site/src/components/MediaLibrary/Images";
 import VideosGallery from "@site/src/components/MediaLibrary/Videos";
 import FilesGallery from "@site/src/components/MediaLibrary/Files";
+import Layout from "@theme/Layout";
 
 type SidebarItem = {
   id: number;
@@ -44,7 +45,7 @@ const accordionItems: SidebarItem[] = [
     id: 1,
     icon: <PresentationChartBarIcon className="h-5 w-5" />,
     label: "Dashboard",
-    subItems: ["View Analytics", "Bandwidth usage",],
+    subItems: ["Usage Analytics", "Bandwidth usage",],
     useAccordion: true,
   },
   {
@@ -95,7 +96,7 @@ function SidebarWithContentSeparator() {
 const renderAccordionContent = (subItem: string) => {
   // Render the corresponding component based on the selected subitem
   switch (subItem) {
-    case "Analytics":
+    case "Usage Analytics":
       setSelectedContent( <StorageInfoCard />);
       break;
     case "Bandwidth usage":
@@ -136,11 +137,12 @@ const handleItemClick = (label: string) => {
 
 
   return (
+    <Layout>
     <div className="flex">
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 p-4">
         <Typography variant="h5" color="blue-gray">
-          Sidebar
+          Welcome User Glen
         </Typography>
       </div>
       <List>
@@ -158,7 +160,7 @@ const handleItemClick = (label: string) => {
             }
           >
             <ListItem className="p-0" selected={open === item.id}>
-              <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 p-3">
+              <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-inherit p-3">
                 <ListItemPrefix>{item.icon}</ListItemPrefix>
                 <Typography color="blue-gray" className="mr-auto font-normal">
                   {item.label}
@@ -197,6 +199,7 @@ const handleItemClick = (label: string) => {
         {selectedContent}
       </div>
     </div>
+    </Layout>
 
   );
 }

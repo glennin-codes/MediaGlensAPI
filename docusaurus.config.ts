@@ -6,7 +6,7 @@ const config: Config = {
 
   title: 'MediaGlens',
   tagline: ' Cloud Application  covering everything from files,image and video uploads, storage, manipulations, optimizations to delivery.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/mediaglen.jpeg',
 
   // Set the production url of your site here
   url: 'https://mediaglens.vercel.app/',
@@ -61,7 +61,7 @@ const config: Config = {
       title: 'MediaGlens',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/mediaglen.jpeg',
       },
       items: [
         {
@@ -128,7 +128,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} All Rights reserved to MediaGlens`,
     },
     prism: {
       theme: prismThemes.github,
