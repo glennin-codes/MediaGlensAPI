@@ -23,6 +23,9 @@
   --small-text: #AAAEB2;
   --some-custom-heading: #0072F5;
   --input-background: #F1F3F5;
+  /* --banner-background: linear-gradient(251deg, #461096 0%, #7F3CE0 100%); */
+  --banner-background:#FFFFFF;
+
 }
 
 /* Set default values for light mode */
@@ -42,6 +45,9 @@
   --small-text: #AAAEB2;
   --some-custom-heading: #0072F5;
   --input-background: #16181A;
+  --banner-background:#1B1B1D;
+
+ 
 }
 /* Tailwind styles using custom properties */
 .text-primary {
@@ -64,5 +70,6 @@
   background-color: var(--input-background);
 }
 .homePage{
-background-color: var(--ifm-color-primary-darker);
+/* background-color: var(--ifm-color-primary-darker); */
+background: var(--banner-background);
 }

@@ -10,22 +10,30 @@ import React from 'react';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  console.log({siteConfig})
   return (
-    <header className="homePage">
-    <div className="mx-auto text-center py-24">
-      <Heading className="text-4xl py-0 font-bold text-white" as={'h1'}>{siteConfig.title}</Heading>
-      <p className="text-xl py-2 text-white">{siteConfig.tagline}</p>
-
+    <header className="homePage   flex flex-col md:flex-row items-center justify-evenly w-full">
+    
+    <div className="md:w-1/2 text-center md:text-left  md:px-10">
+      <Heading className="text-4xl py-0 font-bold subtitle" as="h1">
+        {siteConfig.title}
+      </Heading>
+      <p className="text-xl py-2 small-text text-800 items-center">{siteConfig.tagline}</p>
+  
       <div className="py-2">
         <Link
           className="bg-white rounded-md text-gray-500 px-6 py-5"
           to="/docs/intro"
         >
-        getting started
+          Getting Started
         </Link>
       </div>
     </div>
+    <div className="w-full md:w-1/2 md:px-10 md:py-2 pt-8">
+      <img src="img/hero-trans.png" alt="hero" className="w-full h-auto round-md" />
+    </div>
   </header>
+  
   );
 }
 

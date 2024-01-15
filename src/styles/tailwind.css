@@ -8,6 +8,7 @@
       --some-custom-heading: #0072F5;
       --input-background: #F1F3F5;
       --heading:black;
+      --Banner-background:linear-gradient(251deg, #461096 0%, #7F3CE0 100%);
      
     };
   
@@ -27,6 +28,7 @@
     --small-text: var(--lightmode--small-text);
     --some-custom-heading: var(--lightmode--some-custom-heading);
     --input-background: var(--lightmode--input-background);
+    --Banner-background:var(--lightmode--Banner-background);
   }
   
   /* Dark mode */
@@ -60,5 +62,8 @@
   
   .input-background {
     background-color: var(--input-background);
+  }
+  .banner-background{
+    background-color: var(--Banner-background);
   }
   
