@@ -9,7 +9,7 @@ const Section1: React.FC = () => {
           {/* First Image */}
           <div className="relative group  h-50 mt-5 md:mt-48 overflow-hidden rounded-lg mb-4">
             <img
-              src="img/image1.png" // Replace with actual image URL
+              src="img/image1.png" 
               alt="Image 1"
               className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-300"
             />
@@ -21,7 +21,7 @@ const Section1: React.FC = () => {
           {/* Second Image */}
           <div className="relative h-80 md:mt-24 mt-4 group overflow-hidden rounded-lg mb-4">
             <img
-              src="img/image2.png" // Replace with actual image URL
+              src="img/image2.png" 
               alt="Image 2"
               className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-300"
             />
@@ -32,7 +32,7 @@ const Section1: React.FC = () => {
           {/* Third Image (Centered and Inverted Rectangle) */}
           <div className="relative  h-96 group overflow-hidden rounded-lg mb-4">
             <img
-              src="img/image3.png" // Replace with actual image URL
+              src="img/image3.png" 
               alt="Image 3"
               className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-300"
             />
@@ -43,23 +43,18 @@ const Section1: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-1/2 flex flex-col  justify-center text-wrap px-4 items-center">
-        <h2 className="text-3xl font-bold mb-4">API Features</h2>
-        <ul className="list-none  md:list-inside ">
-          <li className="mb-4 ">
-            <h3 className="text-xl font-bold mb-2"><span className=""><img className="h-5 w-10" src="img/Vector1.svg"/></span>Efficient Media Storage</h3>
-            Store and organize images, videos, and files seamlessly with our
-            robust API. Enjoy secure and scalable storage for all your media
-            assets.
-          </li>
+      <div className="md:w-1/2 w-full flex flex-col  justify-center text-wrap md:px-4 md:items-center">
+        <h3 className="text-2rtxl font-bold mb-4 text-center md:leading-none leading-loose">Very Resourceful Api</h3>
+        <ul className="list-none text-small md:list-inside small-text ">
+       
           <li className="mb-4">
-            <h3 className="text-xl font-bold mb-2"><span className=""><img className="h-5 w-10" src="img/Vector2.svg"/></span>Optimized Media Delivery</h3>
+            <h4 className="text-xl font-bold mb-2 subtitle"><span className=""><img className="h-5 w-10" src="img/Vector2.svg"/></span>Optimized Media Delivery</h4>
             Optimize your media for lightning-fast delivery. Our API employs
             advanced compression techniques for images, ensuring minimal quality
             loss while reducing file sizes significantly.
           </li>
           <li className="mb-4">
-            <h4 className="text-xl font-bold mb-2">
+            <h4 className="text-xl font-bold subtitle mb-2">
             <span className=""><img className="h-5 w-10" src="img/Vector3.svg"/></span> Programmatic Media Manipulation
             </h4>
             Manipulate images and videos programmatically with ease. Our API
@@ -67,18 +62,12 @@ const Section1: React.FC = () => {
             giving you full control over your content.
           </li>
           <li className="mb-4">
-            <h3 className="text-xl font-bold mb-2">Fast Video Compression</h3>
+            <h3 className="text-xl subtitle font-bold mb-2"><span className=""><img className="h-5 w-10 subtitle" src="img/Vector1.svg"/></span>Fast Video Compression</h3>
             Experience blazing-fast video compression without compromising
             quality. Our API can reduce video sizes by up to 62%, ensuring
             optimal streaming performance without sacrificing content quality.
           </li>
-          <li className="mb-4">
-            <h3 className="text-xl font-bold mb-2">Efficient File Delivery</h3>
-            Ship and deliver files seamlessly using our API. Files are
-            compressed into optimized zip archives, maximizing delivery speed
-            while maintaining the integrity of your data.
-          </li>
-          {/* Add more features as needed */}
+  
         </ul>
       </div>
     </div>
