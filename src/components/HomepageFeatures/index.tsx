@@ -16,7 +16,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Comprehensive documentation, providing detailed guides and examples for
-        seamless integration.Versatile,developer-friendly code in multiple
+        seamless integration.Versatile code in multiple
         languages ensuring smooth integration.
       </>
     ),
@@ -46,7 +46,7 @@ const FeatureList: FeatureItem[] = [
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx("col col--4")}>
-      <div className="text--center">
+      <div className="text--center ">
         <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center  padding-horiz--md">
@@ -54,7 +54,7 @@ function Feature({ title, Svg, description }: FeatureItem) {
           {title}
         </Heading>
         <p className="small-text">{description}</p>
-        <img src="img/arrow.svg" classn/>
+        <img src="img/arrow.svg"  className="cursor-pointer  "/>
       </div>
     </div>
   );
@@ -64,9 +64,9 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className="row ">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <Feature  key={idx} {...props} />
           ))}
         </div>
       </div>
