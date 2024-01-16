@@ -45,23 +45,23 @@ const Section1: React.FC = () => {
 
       <div className="w-1/2 flex flex-col  justify-center text-wrap px-4 items-center">
         <h2 className="text-3xl font-bold mb-4">API Features</h2>
-        <ul>
-          <li className="mb-4">
-            <h3 className="text-xl font-bold mb-2">Efficient Media Storage</h3>
+        <ul className="list-none  md:list-inside ">
+          <li className="mb-4 ">
+            <h3 className="text-xl font-bold mb-2"><span className=""><img className="h-5 w-10" src="img/Vector1.svg"/></span>Efficient Media Storage</h3>
             Store and organize images, videos, and files seamlessly with our
             robust API. Enjoy secure and scalable storage for all your media
             assets.
           </li>
           <li className="mb-4">
-            <h3 className="text-xl font-bold mb-2">Optimized Media Delivery</h3>
+            <h3 className="text-xl font-bold mb-2"><span className=""><img className="h-5 w-10" src="img/Vector2.svg"/></span>Optimized Media Delivery</h3>
             Optimize your media for lightning-fast delivery. Our API employs
             advanced compression techniques for images, ensuring minimal quality
             loss while reducing file sizes significantly.
           </li>
           <li className="mb-4">
-            <h3 className="text-xl font-bold mb-2">
-              Programmatic Media Manipulation
-            </h3>
+            <h4 className="text-xl font-bold mb-2">
+            <span className=""><img className="h-5 w-10" src="img/Vector3.svg"/></span> Programmatic Media Manipulation
+            </h4>
             Manipulate images and videos programmatically with ease. Our API
             provides powerful tools for resizing, cropping, and enhancing media,
             giving you full control over your content.
