@@ -11,8 +11,19 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
+    title: "Developer-Friendly",
+    Svg: require("@site/static/img/code.svg").default,
+    description: (
+      <>
+        Comprehensive documentation, providing detailed guides and examples for
+        seamless integration.Versatile,developer-friendly code in multiple
+        languages ensuring smooth integration.
+      </>
+    ),
+  },
+  {
     title: "Efficient Media Storage",
-    Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
+    Svg: require("@site/static/img/file.svg").default,
     description: (
       <>
         Store and organize images, videos, and files seamlessly with our robust
@@ -21,23 +32,12 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: "Efficient File Delivery",
-    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
+    title: "24/7 Support",
+    Svg: require("@site/static/img/support.svg").default,
     description: (
       <>
-        Ship and deliver files seamlessly using our API. Files are compressed
-        into optimized zip archives, maximizing delivery speed while maintaining
-        the integrity of your data.
-      </>
-    ),
-  },
-  {
-    title: "Powered by React",
-    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Get quick assistance from our dedicated support team for a seamless
+        integration experience. Whether you have questions, encountered issues, or need guidance.
       </>
     ),
   },
@@ -50,8 +50,11 @@ function Feature({ title, Svg, description }: FeatureItem) {
         <Svg className={styles.featureSvg} role="img" />
       </div>
       <div className="text--center  padding-horiz--md">
-        <Heading className="some-custom-heading" as="h3">{title}</Heading>
+        <Heading className="some-custom-heading" as="h3">
+          {title}
+        </Heading>
         <p className="small-text">{description}</p>
+        <img src="img/arrow.svg" classn/>
       </div>
     </div>
   );
