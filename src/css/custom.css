@@ -25,6 +25,7 @@
   --input-background: #F1F3F5;
   /* --banner-background: linear-gradient(251deg, #461096 0%, #7F3CE0 100%); */
   --banner-background:#FFFFFF;
+  --Card-color:#FFFFFF;
 
 }
 
@@ -46,6 +47,7 @@
   --some-custom-heading: #0072F5;
   --input-background: #16181A;
   --banner-background:#1B1B1D;
+  --Card-color:#16181A;
 
  
 }
@@ -60,6 +62,9 @@
 
 .small-text {
   color: var(--small-text);
+}
+.card-color{
+  background:var(--Card-color);
 }
 
 .some-custom-heading {

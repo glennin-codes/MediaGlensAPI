@@ -1,352 +1,248 @@
-import React from "react";
- const Pricing =()=>{
-    return(
-        <>
-   
-<section className="mb-28 text-center">
-  <h3 className="mb-10 text-3xl font-semibold text-gray-700 dark:text-white">
-    Pricing
-  </h3>
-
-  <div className="grid gap-8 lg:grid-cols-3">
-   
-    <div
-      className="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
-      
-      <div
-        className="border-b-2 border-neutral-100 px-7 py-3 dark:border-neutral-600 dark:text-neutral-50">
-        <h5 className="mb-4 mt-4 text-lg font-semibold uppercase">Basic</h5>
-
-        <h4 className="mb-4">
-          <span className="text-3xl font-bold">$ 129</span>
-          <span className="text-gray-500 dark:text-gray-300">/year</span>
-        </h4>
-        <button
-          type="button"
-          className="mb-4 inline-block w-full rounded-full bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-          data-te-ripple-init
-          data-te-ripple-color="primary">
-          Buy
-        </button>
-      </div>
-    
-      <div className="p-7">
-        <ul className="text-gray-700 dark:text-white">
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Unlimited updates</span>
-          </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Git repository</span>
-          </li>
-
-          <li className="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>npm installations</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div
-      className="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
-    
-      <div
-        className="border-b-2 border-neutral-100 px-7 py-3 dark:border-neutral-600 dark:text-neutral-50">
-        <h5 className="mb-4 mt-4 text-lg font-semibold uppercase">Advanced</h5>
-
-        <h4 className="mb-4">
-          <span className="text-3xl font-bold">$ 299</span>
-          <span className="text-gray-500 dark:text-gray-300">/year</span>
-        </h4>
-        <button
-          type="button"
-          className="mb-4 inline-block w-full rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-          data-te-ripple-init
-          data-te-ripple-color="light">
-          Buy
-        </button>
-      </div>
-
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+ import React from "react";
+function CheckIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className="h-3 w-3"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12.75l6 6 9-13.5"
+      />
+    </svg>
+  );
+} 
  
-      <div className="p-7">
-        <ul className="text-gray-700 dark:text-white">
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Unlimited updates</span>
+export function PricingCard() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto">
+    <Card color="gray" variant="gradient" className="w-full card-color small-text shadow-xl  max-w-[20rem] p-8">
+      <CardHeader
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+      >
+        <Typography
+          variant="small"
+          color="white"
+          className="font-normal uppercase"
+        >
+          standard
+        </Typography>
+        <Typography
+          variant="h1"
+          color="white"
+          className="mt-6 flex justify-center gap-1 text-7xl font-normal"
+        >
+          <span className="mt-2 text-4xl">$</span>29{" "}
+          <span className="self-end text-4xl">/mo</span>
+        </Typography>
+      </CardHeader>
+      <CardBody className="p-0">
+        <ul className="flex flex-col gap-4">
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">5 team members</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Git repository</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">200+ components</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>npm installations</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">40+ built-in pages</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Code examples</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">1 year free updates</Typography>
           </li>
-
-          <li className="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Private snippets</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">
+              Life time technical support
+            </Typography>
           </li>
         </ul>
-      </div>
-    </div>
-   
-    <div
-      className="block rounded-lg bg-white text-center shadow-lg dark:bg-neutral-700">
-  
-      <div
-        className="border-b-2 border-neutral-100 px-7 py-3 dark:border-neutral-600 dark:text-neutral-50">
-        <h5 className="mb-4 mt-4 text-lg font-semibold uppercase">
-          Enterprise
-        </h5>
-
-        <h4 className="mb-4">
-          <span className="text-3xl font-bold">$ 499</span>
-          <span className="text-gray-500 dark:text-gray-300">/year</span>
-        </h4>
-        <button
-          type="button"
-          className="mb-4 inline-block w-full rounded-full bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-          data-te-ripple-init
-          data-te-ripple-color="primary">
-          Buy
-        </button>
-      </div>
-
-      <div className="p-7">
-        <ul className="text-gray-700 dark:text-white">
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Unlimited updates</span>
+      </CardBody>
+      <CardFooter className="mt-12 p-0">
+        <Button
+          size="lg"
+          color="white"
+          className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
+          ripple={false}
+          fullWidth={true}
+        >
+          Buy Now
+        </Button>
+      </CardFooter>
+    </Card>
+    <Card color="gray" variant="gradient" className="w-full card-color small-text shadow-xl  max-w-[20rem] p-8">
+      <CardHeader
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+      >
+        <Typography
+          variant="small"
+          color="white"
+          className="font-normal uppercase"
+        >
+          standard
+        </Typography>
+        <Typography
+          variant="h1"
+          color="white"
+          className="mt-6 flex justify-center gap-1 text-7xl font-normal"
+        >
+          <span className="mt-2 text-4xl">$</span>29{" "}
+          <span className="self-end text-4xl">/mo</span>
+        </Typography>
+      </CardHeader>
+      <CardBody className="p-0">
+        <ul className="flex flex-col gap-4">
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">5 team members</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Git repository</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">200+ components</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>npm installations</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">40+ built-in pages</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Code examples</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">1 year free updates</Typography>
           </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-            <span>Premium snippets</span>
-          </li>
-
-          <li className="mb-4 flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Premium support</span>
-          </li>
-
-          <li className="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 h-6 w-6 text-green-800">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
-
-            <span>Drag and Drop builder</span>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">
+              Life time technical support
+            </Typography>
           </li>
         </ul>
-      </div>
+      </CardBody>
+      <CardFooter className="mt-12 p-0">
+        <Button
+          size="lg"
+          color="white"
+          className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
+          ripple={false}
+          fullWidth={true}
+        >
+          Buy Now
+        </Button>
+      </CardFooter>
+    </Card>
+    <Card color="gray" variant="gradient" className="w-full card-color small-text shadow-xl  max-w-[20rem] p-8">
+      <CardHeader
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+      >
+        <Typography
+          variant="small"
+          color="white"
+          className="font-normal uppercase"
+        >
+          standard
+        </Typography>
+        <Typography
+          variant="h1"
+          color="white"
+          className="mt-6 flex justify-center gap-1 text-7xl font-normal"
+        >
+          <span className="mt-2 text-4xl">$</span>29{" "}
+          <span className="self-end text-4xl">/mo</span>
+        </Typography>
+      </CardHeader>
+      <CardBody className="p-0">
+        <ul className="flex flex-col gap-4">
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">5 team members</Typography>
+          </li>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">200+ components</Typography>
+          </li>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">40+ built-in pages</Typography>
+          </li>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">1 year free updates</Typography>
+          </li>
+          <li className="flex items-center gap-4">
+            <span className="rounded-full border border-white/20 bg-white/20 p-1">
+              <CheckIcon />
+            </span>
+            <Typography className="font-normal">
+              Life time technical support
+            </Typography>
+          </li>
+        </ul>
+      </CardBody>
+      <CardFooter className="mt-12 p-0">
+        <Button
+          size="lg"
+          color="white"
+          className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
+          ripple={false}
+          fullWidth={true}
+        >
+          Buy Now
+        </Button>
+      </CardFooter>
+    </Card>
     </div>
-   
-  </div>
-</section>
-
-        </>
-    )
-
+  );
 }
-export default Pricing;
+export default PricingCard;
