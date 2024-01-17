@@ -21,10 +21,10 @@ function HomepageHeader() {
       </Heading>
       <p className="text-xl py-2 small-text text-800 items-center">{siteConfig.tagline}</p>
   
-    <div className="flex flex-row gap-4 ">
+    <div className="flex flex-row gap-4 mx-auto justify-center  ">
     <div className="py-2 ">
       <Link
-  className="bg-some-custom-heading text-white   rounded-md px-6 py-5 transition-all duration-300 hover:bg-getingstarted-hover hover:text-white"
+  className="bg-some-custom-heading text-white  rounded-full px-12 py-4 transition-all duration-300 hover:bg-indigo-500 hover:text-white"
   to="/docs/intro"
   style={{
     textDecoration: 'none',
@@ -36,17 +36,19 @@ function HomepageHeader() {
 </Link>
 
       </div>
-      <div className="py-2 ">
+      <div 
+ className="py-2  ">
       <Link
-  className="bg-some-custom-heading text-white   rounded-md px-6 py-5 transition-all duration-300 hover:bg-getingstarted-hover hover:text-white"
+  className="border-2 border-solid border-some-custom-heading text-some-custom-heading rounded-full px-12 py-4 transition-all duration-300 hover:border-pink-500"
   to="/docs/intro"
   style={{
     textDecoration: 'none',
-    boxShadow: '0 0 0 0 rgba(0, 0, 0, 0)',
-    color: 'none'
+    color: 'none',
+    
+
   }}
 >
-  Getting Started
+  Learn More
 </Link>
 
       </div>
