@@ -33,7 +33,7 @@ import {
 
   
   export function PricingCard({ title, price,isActive , features }:PricingCardProps) {
-    const conditionalBackground = isActive ? 'inline-flex items-center rounded-md bg- px-2 py-1 subtitle  ring-1 ring-inset ring-red-600/10' : '';
+    const conditionalBackground = isActive ? 'inline-flex items-center rounded-md bg-indigo-150 px-4 py-1 subtitle  ring-1 ring-inset ring-red-300' : '';
 
     return (
         <>
@@ -71,7 +71,7 @@ import {
             ripple={false}
             fullWidth={true}
           >
-            Buy Now
+           Subscribe Now
           </Button>
         </CardFooter>
       </Card>

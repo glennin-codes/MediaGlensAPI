@@ -17,6 +17,6 @@ export const basicFeatures:string[] = [
     "Custom domain (CNAME) support",
     "Video transcoding and adaptive streaming",
     "Multi-CDN and enterprise grade infrastructure",
-    "225GB Managed Storage or 225GB Monthly Net Viewing Bandwidt",
+    "225GB Managed Storage or 225GB Monthly Net Viewing Bandwidth",
     "24/7 priority technical support",
   ];
