@@ -10,7 +10,7 @@ interface Testimonial {
 export const testimonials: Testimonial[]= [
     {
       id: 1,
-      name: "John Developer",
+      name: "John Kamulu",
       role: "Full Stack Engineer",
       avatar:`https://source.unsplash.com/random/100x100?sig=" + ${Math.random()}`,
       rating: 5,
@@ -26,7 +26,7 @@ export const testimonials: Testimonial[]= [
     },
     {
       id: 3,
-      name: "Tech Startup XYZ",
+      name: "Tefro",
       role: "CTO",
       avatar: `https://source.unsplash.com/random/100x100?sig=" + ${Math.random()}`,
       rating: 5,
@@ -34,20 +34,20 @@ export const testimonials: Testimonial[]= [
     },
     {
       id: 4,
-      name: "E-commerce Company ABC",
-      role: "Head of Technology",
+      name: "Miles Motas ltd",
+      role: "Software Engineer",
       avatar: `https://source.unsplash.com/random/100x100?sig=" + ${Math.random()}`,
       rating: 5,
       content: "Managing a large number of product images can be challenging. This API has streamlined our image optimization process, ensuring that our product pages load quickly. The CDN support ensures global accessibility, and the responsive support team has been a valuable resource.",
     },
     {
       id: 5,
-      name: "Mobile App Developer",
-      role: "App Developer",
+      name: "Digitech Soln",
+      role: "Mobile Developer",
       avatar: `https://source.unsplash.com/random/100x100?sig=" + ${Math.random()}`,
       rating: 4,
       content: "Incorporating video compression into our mobile app was simplified with this API. The API's versatility for image and video optimization, coupled with competitive pricing, makes it a go-to solution for our app's media management. The documentation is comprehensive and developer-friendly.",
     },
   ];
   
-  //can you give me random images urls to use as avators for users?
+ 
