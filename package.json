@@ -20,6 +20,8 @@
     "@heroicons/react": "^2.1.1",
     "@material-tailwind/react": "^2.1.8",
     "@mdx-js/react": "^3.0.0",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",
     "postcss": "^8.4.32",

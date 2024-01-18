@@ -8,6 +8,7 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 import React from 'react';
 import Section1 from '../homePageExample';
+import TestimonialCarousel from '../components/Testmonials';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -72,6 +73,7 @@ export default function Home(): JSX.Element {
       <main>
         <Section1/>
         <HomepageFeatures />
+        <TestimonialCarousel/>
       </main>
     </Layout>
   );
