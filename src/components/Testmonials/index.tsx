@@ -35,14 +35,14 @@ function TestimonialCarousel() {
     }, []);
 console.log({perPage});
   return (
-    <div className={`mx-auto md:px-8 overflow-hidden  py-8 flex justify-center items-center w-full`}
+    <div className={`mx-auto md:px-8   py-8 flex justify-center items-center w-full`}
  
     >
    
       <Splide
           options={ {
             rewind : true,
-            perPage: 3,
+            perPage: perPage,
             height : '28rem',
             gap    : '1rem',
             
