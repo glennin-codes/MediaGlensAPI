@@ -26,7 +26,7 @@ function HomepageHeader() {
     <div className="py-2 ">
       <Link
   className="bg-some-custom-heading text-white  rounded-full md:px-12 px-6 py-4 transition-all duration-300 hover:bg-indigo-500 hover:text-white"
-  to="/docs/intro"
+  to="/subscription"
   style={{
     textDecoration: 'none',
     boxShadow: '0 0 0 0 rgba(0, 0, 0, 0)',
