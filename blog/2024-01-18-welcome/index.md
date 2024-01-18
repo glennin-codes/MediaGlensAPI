@@ -33,6 +33,6 @@ Ready to enhance your development workflow and elevate the performance of your a
 
 **Get Started Today!**
 
-[Explore API Documentation](docs/intro) 
+[Explore API Documentation](/docs/intro) 
 ---
 
