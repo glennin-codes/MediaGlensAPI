@@ -38,6 +38,9 @@ console.log({perPage});
     <div className={`mx-auto md:px-10  px-8  py-8  w-full`}
  
     >
+      <h2 className="text-some-custom-heading text-center ">Engaging Testimonials</h2>
+
+
    
       <Splide
           options={ {

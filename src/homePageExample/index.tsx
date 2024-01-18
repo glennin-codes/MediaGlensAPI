@@ -44,11 +44,11 @@ const Section1: React.FC = () => {
       </div>
 
       <div className="md:w-1/2 w-full flex flex-col  justify-center text-wrap md:px-4 md:items-center">
-        <h3 className="text-2rtxl font-bold mb-4 text-center md:leading-none leading-loose">Very Resourceful Api</h3>
+        <h3 className="text-2rtxl font-bold mb-4 text-center md:leading-none leading-loose">Very Resourceful Api That:</h3>
         <ul className="list-none text-small md:list-inside small-text ">
        
           <li className="mb-4">
-            <h4 className="text-xl font-bold mb-2 subtitle"><span className=""><img className="h-5 w-10" src="img/Vector2.svg"/></span>Optimized Media Delivery</h4>
+            <h4 className="text-xl font-bold mb-2 subtitle"><span className=""><img className="h-5 w-10" src="img/Vector2.svg"/></span>Optimizes Media Delivery</h4>
             Optimize your media for lightning-fast delivery. Our API employs
             advanced compression techniques for images, ensuring minimal quality
             loss while reducing file sizes significantly.
