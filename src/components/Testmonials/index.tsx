@@ -35,7 +35,7 @@ function TestimonialCarousel() {
     }, []);
 console.log({perPage});
   return (
-    <div className={`mx-auto md:px-8   py-8 flex justify-center items-center w-full`}
+    <div className={`mx-auto md:px-10  px-8  py-8  w-full`}
  
     >
    
