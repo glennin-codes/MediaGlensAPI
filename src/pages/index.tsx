@@ -25,7 +25,7 @@ function HomepageHeader() {
     <div className="flex flex-row gap-4 mx-auto justify-center  ">
     <div className="py-2 ">
       <Link
-  className="bg-some-custom-heading text-white  rounded-full px-12 py-4 transition-all duration-300 hover:bg-indigo-500 hover:text-white"
+  className="bg-some-custom-heading text-white  rounded-full md:px-12 px-6 py-4 transition-all duration-300 hover:bg-indigo-500 hover:text-white"
   to="/docs/intro"
   style={{
     textDecoration: 'none',
@@ -40,7 +40,7 @@ function HomepageHeader() {
       <div 
  className="py-2  ">
       <Link
-  className="border-2 border-solid border-some-custom-heading text-some-custom-heading rounded-full px-12 py-4 transition-all duration-300 hover:border-pink-500"
+  className="border-2 border-solid border-some-custom-heading text-some-custom-heading rounded-full md:px-12 py-4  px-6 transition-all duration-300 hover:border-pink-500"
   to="/docs/intro"
   style={{
     textDecoration: 'none',
