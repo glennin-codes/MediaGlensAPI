@@ -71,7 +71,7 @@ const config: Config = {
           label: 'Doc',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/payment', label: 'Pricing', position: 'left'},
+        {to: '/subscription', label: 'Pricing', position: 'left'},
         {
           to:'/login', label:'login',position:'right'
         },
