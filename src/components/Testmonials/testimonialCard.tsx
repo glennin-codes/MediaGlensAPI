@@ -36,7 +36,7 @@ function TestimonialCard({ name, role, avatar, rating, content }: Testimonial) {
     return (
       
   
-          <Card color="transparent" shadow={false} className="w-full max-w-[20rem] ">
+          <Card color="transparent" shadow={false} className="w-full  max-w-[20rem] ">
           <CardHeader
             color="transparent"
             floated={false}
@@ -58,8 +58,8 @@ function TestimonialCard({ name, role, avatar, rating, content }: Testimonial) {
               <Typography className="text-some-custom-heading">{role}</Typography>
             </div>
           </CardHeader>
-          <CardBody className="mb-6 p-0">
-            <Typography>{content}</Typography>
+          <CardBody className="mb-6 p-0 text-wrap">
+            <Typography> &quot; {content}&quot;</Typography>
           </CardBody>
         </Card>
   
