@@ -2,12 +2,14 @@
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import React, { useState } from 'react';
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login: React.FC = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const handleClick = () => {
     setIsClicked(true);
@@ -38,16 +40,30 @@ const Login: React.FC = () => {
           />
         </div>
         
-        <div className="mb-4">
-          <label htmlFor="password" className="block small-text text-sm font-bold mb-2">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            className="w-full px-3 py-3 border input-background  border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
-            placeholder="Enter your password"
-          />
-        </div>
+  {/* Password Input */}
+  <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block small-text text-sm font-bold mb-2"
+            >
+              Password:
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                className="w-full px-3 py-3 border input-background border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
+                placeholder="Enter your password"
+              />
+              <button
+                className="absolute top-1/2 transform -translate-y-1/2 right-4 subtitle bg-transparent border-0 cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
+              </button>
+            </div>
+          </div>
         {/* Forgot Password link */}
         <div className="text-right mb-4">
           <a href="#" className="text-blue-500 hover:underline">Forgot Password?</a>
