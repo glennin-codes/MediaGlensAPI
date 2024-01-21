@@ -177,7 +177,7 @@ const handleItemClick = (label: string) => {
             <ListItem className="p-0  " selected={open === item.id}>
               <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-transparent p-3">
                 <ListItemPrefix className="subtitle">{item.icon}</ListItemPrefix>
-                <Typography  className="mr-auto font-normal text-gray-800 ">
+                <Typography  className="mr-auto subtitle font-normal text-gray-800 ">
                   {item.label}
                 </Typography>
               </AccordionHeader>
@@ -209,7 +209,7 @@ const handleItemClick = (label: string) => {
         ))}
       </List>
     </Card>
-    <div className="flex-1 p-4  card-color ">
+    <div className="flex-1 p-4 subtitle card-color ">
        
         {selectedContent}
       </div>
