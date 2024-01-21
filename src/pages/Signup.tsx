@@ -1,3 +1,4 @@
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import React,{ useState } from 'react';
 import { FaGoogle, FaGithub } from 'react-icons/fa'; 
@@ -35,7 +36,7 @@ const SignupComponent = () => {
             type="email"
             id="email"
             name="email"
-            className="w-full px-3 py-3 border input-background  border-blue-300 rounded-md focus:outline-none focus:border-blue-600"
+            className="w-full px-3 py-3 border input-background  border-gray-300 rounded-md focus:outline-none focus:border-blue-600"
             placeholder="Enter your email"
           />
         </div>
@@ -50,7 +51,7 @@ const SignupComponent = () => {
               type={showPassword ? 'text' : 'password'}
               id="password"
               name="password"
-              className="w-full px-3 py-3 border input-background border-blue-500 rounded-md focus:outline-none focus:border-blue-600"
+              className="w-full px-3 py-3 border input-background border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
               placeholder="Enter your password"
             />
             <button
@@ -71,7 +72,7 @@ const SignupComponent = () => {
             type={showPassword ? 'text' : 'password'}
             id="confirmPassword"
             name="confirmPassword"
-            className="w-full px-3 py-3 border input-background border-blue-500 rounded-md focus:outline-none focus:border-blue-600"
+            className="w-full px-3 py-3 border input-background border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
             placeholder="Confirm your password"
           />
         </div>
@@ -105,9 +106,11 @@ const SignupComponent = () => {
 
         {/* Signup link */}
         <div className="text-right mb-2">
-          <a href="#" className="text-blue-500 hover:underline">
+          <Link 
+          to='/login'
+           className="text-blue-500 hover:underline">
             Already have an account? Login
-          </a>
+          </Link>
         </div>
       </div>
     </div>

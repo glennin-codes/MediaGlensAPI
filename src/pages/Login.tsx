@@ -1,4 +1,5 @@
 // src/components/Login.tsx
+import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import React, { useState } from 'react';
 
@@ -83,7 +84,7 @@ const Login: React.FC = () => {
           <FaGithub className="text-4xl text-gray-700 hover:text-gray-800 cursor-pointer" />
         </div>
         <div className="text-right mb-2">
-          <a href="Signup" className="text-blue-500 hover:underline">Signup?</a>
+          <Link to="Signup" className="text-blue-500 hover:underline">Signup?</Link>
         </div>
 
       </div>
