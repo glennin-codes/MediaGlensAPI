@@ -9,14 +9,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const Login: React.FC = () => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      confirmPassword: "",
+     
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -25,22 +24,17 @@ const Login: React.FC = () => {
       password: Yup.string()
         .min(6, "Password must be at least 6 characters!")
         .required("Password is Required!"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match!")
-        .required("confirm Password is Required!"),
+   
     }),
     onSubmit: (values) => {
       // Handle form submission
       console.log(values);
-      setIsClicked(true);
-      setIsLoading(true);
-
+    
       // Simulate an asynchronous operation (e.g., submitting a form)
       setTimeout(() => {
         // Reset the button state after the operation is completed
-        setIsClicked(false);
-        setIsLoading(false);
-      }, 2000); // Adjust the duration as needed
+        formik.setSubmitting(false)
+      }, 1000); // Adjust the duration as needed
     },
   });
 
@@ -104,6 +98,7 @@ const Login: React.FC = () => {
                   value={formik.values.password}
                 />
                 <button
+                type="button"
                   className="absolute top-1/2 transform -translate-y-1/2 right-4 subtitle bg-transparent border-0 cursor-pointer"
                   onClick={() => setShowPassword(!showPassword)}
                 >
@@ -125,12 +120,12 @@ const Login: React.FC = () => {
 
             <button
               className={`bg-blue-500 text-center cursor-pointer border-0 mx-auto w-full text-white px-4 py-3 rounded-md mb-6 hover:bg-blue-600 transition-transform ${
-                isClicked ? "transform scale-95" : ""
+                formik.isSubmitting ? "transform scale-95" : ""
               }`}
               type="submit"
               disabled={formik.isSubmitting}
             >
-              {isLoading ? (
+              {formik.isSubmitting ? (
                 <>
                   <svg
                     className="animate-spin h-5 w-5 mr-3  border-solid border-t-2 border-gray border-opacity-25 rounded-full"

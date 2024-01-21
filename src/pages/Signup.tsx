@@ -7,8 +7,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const SignupComponent = () => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const formik = useFormik({
     initialValues: {
@@ -30,33 +29,21 @@ const SignupComponent = () => {
     onSubmit: (values) => {
       // Handle form submission
       console.log(values);
-      setIsClicked(true);
-      setIsLoading(true);
-  
+   
       // Simulate an asynchronous operation (e.g., submitting a form)
       setTimeout(() => {
         // Reset the button state after the operation is completed
-        setIsClicked(false);
-        setIsLoading(false);
-      }, 2000); // Adjust the duration as needed
+    formik.setSubmitting(false)
+      }, 1000); // Adjust the duration as needed
     },
   });
-  const handleClick = () => {
-    setIsClicked(true);
-    setIsLoading(true);
 
-    // Simulate an asynchronous operation (e.g., submitting a form)
-    setTimeout(() => {
-      // Reset the button state after the operation is completed
-      setIsClicked(false);
-      setIsLoading(false);
-    }, 2000); // Adjust the duration as needed
-  };
 
   return (
     <Layout>
       <div className="min-h-screen flex small-text items-center justify-center">
         <div className="max-w-md w-full p-6 card-color rounded-md shadow-md">
+        <form onSubmit={formik.handleSubmit}>
           <div className="text-2xl text-center subtitle font-semibold text-primary mb-4">
             Signup
           </div>
@@ -134,6 +121,7 @@ const SignupComponent = () => {
                 value={formik.values.password}
               />
               <button
+              type="button"
                 className="absolute top-1/2 transform -translate-y-1/2 right-4 subtitle bg-transparent border-0 cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
@@ -174,12 +162,12 @@ const SignupComponent = () => {
           {/* Signup button */}
           <button
             className={`bg-blue-500 text-center cursor-pointer border-0 mx-auto w-full text-white px-4 py-3 rounded-md mb-6 hover:bg-blue-600 transition-transform ${
-              isClicked ? "transform scale-95" : ""
+              formik.isSubmitting ? "transform scale-95" : ""
             }`}
-            onClick={handleClick}
-            disabled={isLoading}
+            type="submit"
+            disabled={formik.isSubmitting}
           >
-            {isLoading ? (
+            {formik.isSubmitting ? (
               <>
                 <svg
                   className="animate-spin h-5 w-5 mr-3 border-solid border-t-2 border-gray border-opacity-25 rounded-full"
@@ -204,6 +192,7 @@ const SignupComponent = () => {
               Already have an account? Login
             </Link>
           </div>
+          </form>
         </div>
       </div>
     </Layout>
