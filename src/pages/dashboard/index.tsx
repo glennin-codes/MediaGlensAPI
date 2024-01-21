@@ -153,7 +153,7 @@ const handleItemClick = (label: string) => {
     <Card 
  className={`${
   isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-} md:translate-x-0 homePage transition-transform  duration-300 ease-in-out md:duration-0 md:ease-in-out h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 fixed lg:static `}
+} md:translate-x-0  card-color transition-transform  duration-300 ease-in-out md:duration-0 md:ease-in-out h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 fixed lg:static `}
   >
         <div className="mb-2 p-4">
         <Typography variant="h5" >
