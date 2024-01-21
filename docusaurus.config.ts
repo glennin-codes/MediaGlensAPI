@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
 
   title: 'MediaGlens',
-  tagline: ' Cloud Application  covering everything from files,image and video uploads, storage, manipulations, optimizations to delivery.',
+  tagline: ' Cloud Application API covering everything from files,image and video uploads, storage, manipulations, optimizations to delivery.',
   favicon: 'img/mediaglen.jpeg',
 
   // Set the production url of your site here
@@ -73,10 +73,10 @@ const config: Config = {
         {to: '/blog', label: 'Blog', position: 'left'},
         {to: '/subscription', label: 'Pricing', position: 'left'},
         {
-          to:'/login', label:'login',position:'right'
+          to:'/Login', label:'Login',position:'right'
         },
         {
-          to:'/signup', label:'signup',position:'right'
+          to:'/Signup', label:'Signup',position:'right'
         },
         {
           href: 'https://github.com/glennin-codes/MediaGlensAPI',

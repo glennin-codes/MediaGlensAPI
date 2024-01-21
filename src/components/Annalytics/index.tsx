@@ -30,11 +30,11 @@ const StorageInfoCard = () => {
   }, []); // Empty dependency array ensures the effect runs once on mount
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl overflow-hidden md:max-w-2xl mt-5 shadow-md p-5">
+    <div className="max-w-md mx-auto small-text rounded-xl overflow-hidden md:max-w-2xl mt-5 shadow-md p-5">
       <h2 className="text-2xl font-semibold mb-3">Storage Information</h2>
-      <p className="text-gray-600">Total Capacity: {storageInfo.totalCapacity} GB</p>
-      <p className="text-gray-600">Used Space: {storageInfo.usedSpace} GB</p>
-      <p className="text-gray-600">Remaining Space: {storageInfo.remainingSpace} GB</p>
+      <p className="small-text">Total Capacity: {storageInfo.totalCapacity} GB</p>
+      <p className="small-text">Used Space: {storageInfo.usedSpace} GB</p>
+      <p className="small-text">Remaining Space: {storageInfo.remainingSpace} GB</p>
 
       {/* Add a visual representation, such as a progress bar */}
       <div className="bg-gray-200 mt-3 rounded-md overflow-hidden">

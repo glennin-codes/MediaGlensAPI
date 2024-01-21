@@ -83,17 +83,18 @@ const nonAccordionItems: SidebarItem[] = [
 function SidebarWithContentSeparator() {
   const [open, setOpen] = useState<number>(0);
   const [selectedContent, setSelectedContent] = useState<React.ReactNode >(<StorageInfoCard />);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-  
   const handleOpen = (value: number) => {
     setOpen((prevOpen) => (prevOpen === value ? 0 : value));
     // // When opening an accordion, set the default content based on the first subitem
     // if (accordionItems.find((item) => item.id === value)?.subItems) {
     //   setSelectedContent(<StorageInfoCard />);
     // }
-
+   
 }
 const renderAccordionContent = (subItem: string) => {
+
   // Render the corresponding component based on the selected subitem
   switch (subItem) {
     case "Usage Analytics":
@@ -113,6 +114,9 @@ const renderAccordionContent = (subItem: string) => {
       break;
       default:
         break;
+  }
+  if (isMobileMenuOpen) {
+    setMobileMenuOpen(false);
   }
 };
 const handleItemClick = (label: string) => {
@@ -138,10 +142,21 @@ const handleItemClick = (label: string) => {
 
   return (
     <Layout>
-    <div className="flex">
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-      <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
+    <div className="flex subtitle">
+    <button
+        className="md:hidden right-0 fixed top-10  z-10 p-5 bg-blue-500"
+        onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {/* Add your toggle button icon */}
+        Toggle
+      </button>
+    <Card 
+ className={`${
+  isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+} md:translate-x-0  transition-transform  duration-300 ease-in-out md:duration-0 md:ease-in-out h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 fixed lg:static homePage `}
+  >
+        <div className="mb-2 p-4">
+        <Typography variant="h5" >
           Welcome User Glen
         </Typography>
       </div>
@@ -159,10 +174,10 @@ const handleItemClick = (label: string) => {
               />
             }
           >
-            <ListItem className="p-0" selected={open === item.id}>
-              <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-inherit p-3">
-                <ListItemPrefix>{item.icon}</ListItemPrefix>
-                <Typography color="blue-gray" className="mr-auto font-normal">
+            <ListItem className="p-0  " selected={open === item.id}>
+              <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-transparent p-3">
+                <ListItemPrefix className="subtitle">{item.icon}</ListItemPrefix>
+                <Typography  className="mr-auto font-normal text-gray-800 ">
                   {item.label}
                 </Typography>
               </AccordionHeader>
@@ -171,7 +186,7 @@ const handleItemClick = (label: string) => {
               <AccordionBody className="py-1">
                 <List className="p-0">
                   {item.subItems.map((subItem, index) => (
-                    <ListItem onClick={()=>renderAccordionContent(subItem)}  key={index}>
+                    <ListItem className="subtitle" onClick={()=>renderAccordionContent(subItem)}  key={index}>
                       <ListItemPrefix>
                         <ChevronRightIcon strokeWidth={3} className="h-3 w-5" />
                       </ListItemPrefix>
@@ -183,9 +198,9 @@ const handleItemClick = (label: string) => {
             )}
           </Accordion>
         ))}
-        <hr className="my-2 border-blue-gray-50" />
+        <hr className="my-2 border-blue-gray-50 " />
         {nonAccordionItems.map((item) => (
-          <ListItem  onClick={()=>handleItemClick(item.label)} key={item.id}>
+          <ListItem className="subtitle"  onClick={()=>handleItemClick(item.label)} key={item.id}>
             <ListItemPrefix
            
             >{item.icon}</ListItemPrefix>
@@ -194,7 +209,7 @@ const handleItemClick = (label: string) => {
         ))}
       </List>
     </Card>
-    <div className="flex-1 p-4">
+    <div className="flex-1 p-4  card-color ">
        
         {selectedContent}
       </div>
