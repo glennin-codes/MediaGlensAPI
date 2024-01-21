@@ -22,39 +22,44 @@ const ClientIdComponent = () => {
     setIsClientIdVisible(!isClientIdVisible);
   };
   return (
-    <div className="p-4 subtitle  py-5 mt-5 rounded-lg shadow-sm">
-      <div className="text-sm font-mono relative">
-          
-            <span
-          className="top-0 left-0 cursor-pointer text-lg italic py-0 subtitle "
-          onClick={handleToggleVisibility}
-        >
-             {isClientIdVisible ? 'Hide Client Id ' : ' Show Client Id '}
-          {isClientIdVisible ? <FiEyeOff  size={24} className="ml-2" /> : <FiEye size={24} className="ml-2" />}
-         
-        </span>
+    <div className="p-4 card-color subtitle md:py-5 py-10 rounded-lg shadow-md flex flex-col">
+    <div className="flex items-center justify-between">
+    <span
+      className="cursor-pointer text-lg italic py-0 subtitle"
+      onClick={handleToggleVisibility}
+    >
+      {isClientIdVisible ? 'Hide Client Id' : 'Show Client Id'}
+      {isClientIdVisible ? (
+        <FiEyeOff size={24} className="ml-2" />
+      ) : (
+        <FiEye size={24} className="ml-2" />
+      )}
+    </span>
+    
+    {/* Copy Button */}
+    <button
+      onClick={handleCopyClick}
+      className="flex items-center card-color border-0 bg-blue-300 px-2 py-1 rounded-md hover:bg-blue-600"
+      title="Copy"
+    >
+      {isCopied ? (
+        <FaCheck className="mr-2" />
+      ) : (
+        <FaCopy className="mr-2" />
+      )}
+      {isCopied ? 'Copied!' : 'Copy'}
+    </button>
+  </div>
       
         <hr className="my-1 border-blue-gray-50 " />
 
-        <span className="text-green-400">{`Client ID:`}</span> {isClientIdVisible?
-           clientId:"**********"
-        }
-        
-        <button
-          onClick={handleCopyClick}
-          className="absolute card-color border-0 bg-blue-300 top-0 right-0 cursor-pointer transform translate-x-2 -translate-y-1/2 flex items-center   px-2 py-1 rounded-md hover:bg-blue-600"
-          title="Copy"
-        >
-          {isCopied ? (
-            <FaCheck className="mr-2" />
-          ) : (
-            <FaCopy className="mr-2" />
-          )}
-          {isCopied ? 'Copied!' : 'Copy'}
-        </button>
+     {/* Client ID */}
+  <div className="text-green-400">
+  <span className='subtitle'>ClientId: </span>{isClientIdVisible ? clientId : '**********'}
+  </div>
       </div>
     
-    </div>
+    
   );
 };
 export default ClientIdComponent;

@@ -153,7 +153,7 @@ const handleItemClick = (label: string) => {
     <Card 
  className={`${
   isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-} md:translate-x-0  transition-transform  duration-300 ease-in-out md:duration-0 md:ease-in-out h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 fixed lg:static homePage `}
+} md:translate-x-0 homePage transition-transform  duration-300 ease-in-out md:duration-0 md:ease-in-out h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 fixed lg:static `}
   >
         <div className="mb-2 p-4">
         <Typography variant="h5" >
@@ -174,10 +174,10 @@ const handleItemClick = (label: string) => {
               />
             }
           >
-            <ListItem className="p-0  " selected={open === item.id}>
+            <ListItem className="p-0 " selected={open === item.id}>
               <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-transparent p-3">
-                <ListItemPrefix className="subtitle">{item.icon}</ListItemPrefix>
-                <Typography  className="mr-auto subtitle font-normal text-gray-800 ">
+                <ListItemPrefix className="subtitle ">{item.icon}</ListItemPrefix>
+                <Typography  className="mr-auto font-normal subtitle ">
                   {item.label}
                 </Typography>
               </AccordionHeader>
@@ -209,7 +209,7 @@ const handleItemClick = (label: string) => {
         ))}
       </List>
     </Card>
-    <div className="flex-1 p-4 subtitle card-color ">
+    <div className="flex-1 p-4 card-color ">
        
         {selectedContent}
       </div>

@@ -34,11 +34,10 @@ const StorageInfoCard = () => {
   }, []); // Empty dependency array ensures the effect runs once on mount
 
   return (
-<div className="relative w-full h-full">
+<div className=" w-full h-full ">
   {/* Display client ID in the top-right corner */}
 
-<ClientIdComponent/>
-
+    <ClientIdComponent />
 
 
 
