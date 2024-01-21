@@ -3,12 +3,44 @@ import Layout from "@theme/Layout";
 import React, { useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const SignupComponent = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
-
+  const formik = useFormik({
+    initialValues: {
+      name:'',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    },
+    validationSchema: Yup.object({
+      name:Yup.string().required('Name is Required!'),
+      email: Yup.string().email('Invalid email address').required('Email is Required!'),
+      password: Yup.string()
+        .min(6, 'Password must be at least 6 characters!')
+        .required('Password is Required!'),
+      confirmPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match!')
+        .required('confirm Password is Required!'),
+    }),
+    onSubmit: (values) => {
+      // Handle form submission
+      console.log(values);
+      setIsClicked(true);
+      setIsLoading(true);
+  
+      // Simulate an asynchronous operation (e.g., submitting a form)
+      setTimeout(() => {
+        // Reset the button state after the operation is completed
+        setIsClicked(false);
+        setIsLoading(false);
+      }, 2000); // Adjust the duration as needed
+    },
+  });
   const handleClick = () => {
     setIsClicked(true);
     setIsLoading(true);
@@ -29,6 +61,28 @@ const SignupComponent = () => {
             Signup
           </div>
 
+          {/* Name Input */}
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block small-text text-sm font-bold mb-2"
+            >
+              Name:
+            </label>
+            <input
+              type="name"
+              id="name"
+              name="name"
+              className="w-full px-3 py-3 border input-background  border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
+              placeholder="Enter your Name i.e John Doe"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
+            />
+                    {formik.touched.name && formik.errors.name && (
+    <div className=" text-red-500 text-sm top-full left-0 mt-1 mb-2">{formik.errors.name}</div>
+  )}
+          </div>
           {/* Email Input */}
           <div className="mb-4">
             <label
@@ -43,11 +97,18 @@ const SignupComponent = () => {
               name="email"
               className="w-full px-3 py-3 border input-background  border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
               placeholder="Enter your email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
             />
           </div>
-
+          {formik.touched.email && formik.errors.email && (
+    <div className=" text-red-500 text-sm top-full left-0 mt-1 mb-2">{formik.errors.email}</div>
+  )}
           {/* Password Input */}
-          <div className="mb-4">
+          
+  {/* Password Input */}
+  <div className="mb-6">
             <label
               htmlFor="password"
               className="block small-text text-sm font-bold mb-2"
@@ -59,8 +120,18 @@ const SignupComponent = () => {
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
-                className="w-full px-3 py-3 border input-background border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
+                className={`w-full px-3 py-3 border input-background rounded-md focus:outline-none ${
+                  formik.errors.password && formik.touched.password
+                    ? 'border-red-500 focus:border-red-600'
+                    : 'border-gray-400 focus:border-blue-600'
+                }`}
                 placeholder="Enter your password"
+                onChange={(e) => {
+                  formik.handleChange(e);
+                  formik.setFieldValue('password', e.target.value.trim());
+                }}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
               />
               <button
                 className="absolute top-1/2 transform -translate-y-1/2 right-4 subtitle bg-transparent border-0 cursor-pointer"
@@ -68,8 +139,11 @@ const SignupComponent = () => {
               >
                 {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
               </button>
+              {formik.touched.password && formik.errors.password && (
+    <div className="absolute text-red-500 text-sm top-full left-0 mt-1 mb-2">{formik.errors.password}</div>
+  )}
             </div>
-          </div>
+            </div>
 
           {/* Confirm Password Input */}
           <div className="mb-6">
@@ -85,7 +159,16 @@ const SignupComponent = () => {
               name="confirmPassword"
               className="w-full px-3 py-3 border input-background border-gray-400 rounded-md focus:outline-none focus:border-blue-600"
               placeholder="Confirm your password"
+              onChange={(e) => {
+                formik.handleChange(e);
+                formik.setFieldValue('confirmPassword', e.target.value.trim());
+              }}
+              onBlur={formik.handleBlur}
+              value={formik.values.confirmPassword}
             />
+                          {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+    <div className=" text-red-500 text-sm top-full left-0 mt-1 mb-2">{formik.errors.confirmPassword}</div>
+  )}
           </div>
 
           {/* Signup button */}
