@@ -12,7 +12,8 @@ import {
     title:string,
     price:number,
     isActive:boolean,
-    features:string[]
+    features:string[],
+    url:string
 
 
   }
@@ -32,7 +33,7 @@ import {
   } 
 
   
-  export function PricingCard({ title, price,isActive , features }:PricingCardProps) {
+  export function PricingCard({ title, price,isActive , features ,url}:PricingCardProps) {
     const conditionalBackground = isActive ? 'inline-flex items-center rounded-md bg-indigo-150 px-4 py-1 subtitle  ring-1 ring-inset ring-red-300' : '';
 
     return (
@@ -70,6 +71,12 @@ import {
             className="hover:scale-[1.02] border-none cursor-pointer focus:scale-[1.02] active:scale-100 bg-some-custom-heading"
             ripple={false}
             fullWidth={true}
+            type="button"
+            onClick={
+              ()=>window.open(url)
+            }
+
+            
           >
            Subscribe Now
           </Button>
