@@ -23,6 +23,7 @@
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
     "autoprefixer": "^10.4.16",
+    "axios": "^1.6.5",
     "clsx": "^2.0.0",
     "formik": "^2.4.5",
     "postcss": "^8.4.32",

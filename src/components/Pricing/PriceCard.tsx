@@ -73,6 +73,7 @@ import {
             fullWidth={true}
             type="button"
             onClick={
+              
               ()=>window.open(url)
             }
 
