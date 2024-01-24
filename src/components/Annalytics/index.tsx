@@ -27,6 +27,7 @@ const StorageInfoCard = () => {
 
 
   useEffect(() => {
+    handleShowSnackbar('Error message', 'error')
     // Simulate an API call
     // Replace this with your actual API endpoint and logic
     const fetchStorageInfo = async () => {
@@ -44,7 +45,7 @@ const StorageInfoCard = () => {
 
 
         )
-        handleShowSnackbar('Error message', 'error')
+      
         const{bytes,totalItems}= await response?.data?.storage
 console.log(bytes);
         setStorageInfo({

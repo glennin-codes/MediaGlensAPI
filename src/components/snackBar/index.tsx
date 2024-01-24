@@ -11,7 +11,7 @@ const Snackbar = ({ message, type, onClose }) => {
     const timeoutId = setTimeout(() => {
       setShowSnackbar(false);
       onClose();
-    }, 3000);
+    }, 8000);
 
     // Clear the timeout on component unmount
     return () => clearTimeout(timeoutId);
