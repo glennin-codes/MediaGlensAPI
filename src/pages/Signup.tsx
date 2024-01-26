@@ -5,7 +5,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useAuthStore } from "../Zustand/store/authStore";
+import { useAuthStore } from "../Zustand/Hooks/authStore";
 import { useHistory } from "@docusaurus/router";
 import Snackbar from "../components/snackBar";
 
