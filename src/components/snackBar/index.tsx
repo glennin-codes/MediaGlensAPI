@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Snackbar = ({ message, type, onClose }) => {
   const [showSnackbar, setShowSnackbar] = useState(false);
-
+ 
   useEffect(() => {
     // Show the Snackbar
     setShowSnackbar(true);

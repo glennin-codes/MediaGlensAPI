@@ -7,10 +7,28 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import { useHistory } from "@docusaurus/router";
+import { useAuthStore } from "../Zustand/store/authStore";
+import Snackbar from "../components/snackBar";
 
 const Login: React.FC = () => {
 
+const{login,error,isLoading,isAuthenticated}=useAuthStore();
+const history=useHistory();
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarType, setSnackbarType] = useState('success'); // 'success' or 'error'
+
+  const handleShowSnackbar = (message:string, type:string) => {
+    setSnackbarMessage(message);
+    setSnackbarType(type);
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarMessage('');
+    setSnackbarType('success'); // Reset type to default (success)
+  };
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -26,16 +44,16 @@ const Login: React.FC = () => {
         .required("Password is Required!"),
    
     }),
-    onSubmit: (values) => {
-      // Handle form submission
-      console.log(values);
-    
-      // Simulate an asynchronous operation (e.g., submitting a form)
-      setTimeout(() => {
-        // Reset the button state after the operation is completed
-        formik.setSubmitting(false)
-      }, 1000); // Adjust the duration as needed
-    },
+    onSubmit: async(values) => 
+    {
+      await  login(values);
+     if(error){
+      handleShowSnackbar(error, 'error');
+     }
+     if(isAuthenticated){
+      history.push('/dashboard');
+     }
+    }
   });
 
   return (
@@ -120,12 +138,12 @@ const Login: React.FC = () => {
 
             <button
               className={`bg-blue-500 text-center cursor-pointer border-0 mx-auto w-full text-white px-4 py-3 rounded-md mb-6 hover:bg-blue-600 transition-transform ${
-                formik.isSubmitting ? "transform scale-95" : ""
+                isLoading ? "transform scale-95" : ""
               }`}
               type="submit"
-              disabled={formik.isSubmitting}
+              disabled={isLoading}
             >
-              {formik.isSubmitting ? (
+              {isLoading ? (
                 <>
                   <svg
                     className="animate-spin h-5 w-5 mr-3  border-solid border-t-2 border-gray border-opacity-25 rounded-full"
@@ -151,6 +169,9 @@ const Login: React.FC = () => {
           </form>
         </div>
       </div>
+      {snackbarMessage && (
+        <Snackbar message={snackbarMessage} type={snackbarType} onClose={handleCloseSnackbar} />
+      )}
     </Layout>
   );
 };
