@@ -3,6 +3,7 @@ import { useHistory, useLocation } from '@docusaurus/router';
 import React, { useEffect, useState } from 'react';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useAuthStore } from '../Zustand/Hooks/authStore';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const VerificationPage = () => {
 const  history=useHistory();
@@ -34,9 +35,11 @@ useEffect(() => {
 
 
   return (
+    <BrowserOnly>
+      {() =>(
     <div className="flex h-screen items-center justify-center">
     <div className="text-center">
-      <h1 className="text-4xl font-bold mb-4">Verifying please wait </h1>
+      {!success && !error && <h1 className="text-4xl font-bold mb-4">Verifying please wait </h1>}
       {isLoading && <div className="animate-spin text-blue-500 text-2xl mb-4">Loading...</div>}
 
       {success && (
@@ -53,6 +56,8 @@ useEffect(() => {
         )}
     </div>
   </div>
+   )}
+   </BrowserOnly>
   );
 };
 
