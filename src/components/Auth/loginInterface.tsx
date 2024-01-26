@@ -57,9 +57,7 @@ const history=useHistory();
           if (error) {
             handleShowSnackbar(error, 'error');
           }
-          if (isAuthenticated) {
-            history.push('/dashboard');
-          }
+          
         } catch (error) {
           console.error('Error during login:', error);
         }
@@ -69,6 +67,12 @@ const history=useHistory();
     }, [])
   });
 
+  useEffect(() => {
+    // Perform additional actions when isAuthenticated changes
+    if (isAuthenticated) {
+      history.push('/dashboard');
+    }
+  }, [isAuthenticated]);
   return (
  
     <Layout>

@@ -20,15 +20,16 @@ const  history=useHistory();
     try {
       // Assuming verify returns a Promise
       await verify({ email, code, expirationTimestamp });
-
       if (isAuthenticated) {
         history.push('/dashboard');
       }
+     
     } catch (error) {
       console.error('Error verifying:', error);
       // Handle the error as needed
     }
   };
+
 
 useEffect(() => {
   fetchData();
