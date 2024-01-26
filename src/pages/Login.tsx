@@ -48,15 +48,23 @@ const history=useHistory();
    
     }),
     onSubmit: async(values) => 
-    {
-      await  login(values);
-     if(error){
-      handleShowSnackbar(error, 'error');
-     }
-     if(isAuthenticated){
-      history.push('/dashboard');
-     }
-    }
+    useEffect(() => {
+      const performLogin = async () => {
+        try {
+          await login(values);
+          if (error) {
+            handleShowSnackbar(error, 'error');
+          }
+          if (isAuthenticated) {
+            history.push('/dashboard');
+          }
+        } catch (error) {
+          console.error('Error during login:', error);
+        }
+      };
+
+      performLogin();
+    }, [])
   });
 
   return (
