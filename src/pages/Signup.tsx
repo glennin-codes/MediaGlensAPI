@@ -8,7 +8,6 @@ import * as Yup from 'yup';
 import { useAuthStore } from "../Zustand/Hooks/authStore";
 import { useHistory } from "@docusaurus/router";
 import Snackbar from "../components/snackBar";
-import BrowserOnly from "@docusaurus/BrowserOnly";
 
 const SignupComponent = () => {
   const history=useHistory();
@@ -58,9 +57,7 @@ const SignupComponent = () => {
 
 
   return (
-    <BrowserOnly>
-    {()=>(
-
+  
     
     <Layout>
       <div className="min-h-screen flex small-text items-center justify-center">
@@ -184,12 +181,12 @@ const SignupComponent = () => {
           {/* Signup button */}
           <button
             className={`bg-blue-500 text-center cursor-pointer border-0 mx-auto w-full text-white px-4 py-3 rounded-md mb-6 hover:bg-blue-600 transition-transform ${
-              formik.isSubmitting ? "transform scale-95" : ""
+              isLoading? "transform scale-95" : ""
             }`}
             type="submit"
             disabled={formik.isSubmitting}
           >
-            {formik.isSubmitting ? (
+            {isLoading? (
               <>
                 <svg
                   className="animate-spin h-5 w-5 mr-3 border-solid border-t-2 border-gray border-opacity-25 rounded-full"
@@ -222,8 +219,7 @@ const SignupComponent = () => {
         <Snackbar message={snackbarMessage} type={snackbarType} onClose={handleCloseSnackbar} />
       )}
     </Layout>
-    )}
-    </BrowserOnly>
+ 
   );
 };
 
