@@ -1,7 +1,7 @@
 // src/components/Login.tsx
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -20,6 +20,7 @@ const history=useHistory();
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarType, setSnackbarType] = useState('success'); // 'success' or 'error'
 
+  
   const handleShowSnackbar = (message:string, type:string) => {
     setSnackbarMessage(message);
     setSnackbarType(type);

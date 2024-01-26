@@ -9,13 +9,7 @@ const VerificationPage = () => {
   const [error, setError] = useState(false);
 
   const simulateVerification = () => {
-    useEffect(()=>{
-        const url="https://localhost:8080/verifying/555029-23"
-       
-
-    },[]
-
-    );
+ 
     setLoading(true);
 
     // // Simulate API call (replace with your actual verification logic)

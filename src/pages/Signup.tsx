@@ -5,10 +5,27 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useAuthStore } from "../Zustand/store/authStore";
+import { useHistory } from "@docusaurus/router";
+import Snackbar from "../components/snackBar";
 
 const SignupComponent = () => {
-
+  const history=useHistory();
+  const{signUp,error,success,isLoading,}=useAuthStore();
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarType, setSnackbarType] = useState('success'); // 'success' or 'error'
+
+  const handleShowSnackbar = (message:string, type:string) => {
+    setSnackbarMessage(message);
+    setSnackbarType(type);
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarMessage('');
+    setSnackbarType('success'); // Reset type to default (success)
+  };
+
   const formik = useFormik({
     initialValues: {
       name:'',
@@ -26,15 +43,15 @@ const SignupComponent = () => {
         .oneOf([Yup.ref('password'), null], 'Passwords must match!')
         .required('confirm Password is Required!'),
     }),
-    onSubmit: (values) => {
-      // Handle form submission
-      console.log(values);
-   
-      // Simulate an asynchronous operation (e.g., submitting a form)
-      setTimeout(() => {
-        // Reset the button state after the operation is completed
-    formik.setSubmitting(false)
-      }, 1000); // Adjust the duration as needed
+    onSubmit: async(values) => {
+      await  signUp(values);
+     if(error){
+      handleShowSnackbar(error, 'error');
+     }
+      if(success){
+        handleShowSnackbar(success, 'success');
+        history.push('/verify');
+      }
     },
   });
 
@@ -194,7 +211,11 @@ const SignupComponent = () => {
           </div>
           </form>
         </div>
+
       </div>
+      {snackbarMessage && (
+        <Snackbar message={snackbarMessage} type={snackbarType} onClose={handleCloseSnackbar} />
+      )}
     </Layout>
   );
 };
