@@ -8,7 +8,10 @@ const Login = () => {
   return (
     <BrowserOnly fallback={<div>{""}</div>}>
       {() => {
-        return  isBrowser && <LoginInterface />;
+        return  isBrowser ? <LoginInterface /> : 
+        (<div>
+          looading due to the client...
+        </div>)
       }}
     </BrowserOnly>
   );
