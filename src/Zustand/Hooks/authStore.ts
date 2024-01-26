@@ -1,5 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
+import useIsBrowser from '@docusaurus/useIsBrowser';
 
 type User = {
   email: string;
