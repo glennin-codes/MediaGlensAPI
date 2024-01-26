@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useAuthStore } from '../Zustand/Hooks/authStore';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import Layout from '@theme/Layout';
 
 const VerificationPage = () => {
 const  history=useHistory();
@@ -37,6 +38,7 @@ useEffect(() => {
   return (
     <BrowserOnly>
       {() =>(
+        <Layout>
     <div className="flex h-screen items-center justify-center">
     <div className="text-center">
       {!success && !error && <h1 className="text-4xl font-bold mb-4">Verifying please wait </h1>}
@@ -56,6 +58,7 @@ useEffect(() => {
         )}
     </div>
   </div>
+  </Layout>
    )}
    </BrowserOnly>
   );

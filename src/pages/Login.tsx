@@ -12,6 +12,7 @@ import { useHistory } from "@docusaurus/router";
 import { useAuthStore } from "../Zustand/Hooks/authStore";
 import Snackbar from "../components/snackBar";
 import BrowserOnly from "@docusaurus/BrowserOnly";
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 const Login: React.FC = () => {
 
@@ -59,11 +60,13 @@ const history=useHistory();
   });
 
   return (
+    <BrowserOnly>
+    {() => (
     <Layout>
+       
       <div className="min-h-screen   flex small-text items-center justify-center">
         <div className="max-w-md w-full p-6 card-color rounded-md shadow-md">
-        <BrowserOnly>
-        {() => (
+       
           <form onSubmit={formik.handleSubmit}>
             <div className="text-2xl  text-center subtitle font-semibold text-primary mb-4">
               Login
@@ -171,14 +174,17 @@ const history=useHistory();
               </Link>
             </div>
           </form>
-            )}
-            </BrowserOnly>
+          
+           
         </div>
       </div>
       {snackbarMessage && (
         <Snackbar message={snackbarMessage} type={snackbarType} onClose={handleCloseSnackbar} />
       )}
+      
     </Layout>
+      )}
+     </BrowserOnly>
   );
 };
 

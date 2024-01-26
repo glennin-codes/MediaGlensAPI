@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import { useAuthStore } from "../Zustand/Hooks/authStore";
 import { useHistory } from "@docusaurus/router";
 import Snackbar from "../components/snackBar";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 const SignupComponent = () => {
   const history=useHistory();
@@ -57,6 +58,10 @@ const SignupComponent = () => {
 
 
   return (
+    <BrowserOnly>
+    {()=>(
+
+    
     <Layout>
       <div className="min-h-screen flex small-text items-center justify-center">
         <div className="max-w-md w-full p-6 card-color rounded-md shadow-md">
@@ -217,6 +222,8 @@ const SignupComponent = () => {
         <Snackbar message={snackbarMessage} type={snackbarType} onClose={handleCloseSnackbar} />
       )}
     </Layout>
+    )}
+    </BrowserOnly>
   );
 };
 
