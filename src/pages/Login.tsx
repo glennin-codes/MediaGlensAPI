@@ -1,12 +1,14 @@
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import React from 'react';
 import LoginInterface from '../components/Auth/loginInterface'; // Adjust the import path based on your project structure
-"use client";
+import useIsBrowser from '@docusaurus/useIsBrowser';
+
 const Login = () => {
+  const isBrowser = useIsBrowser();
   return (
     <BrowserOnly fallback={<div>Loading...</div>}>
       {() => {
-        return <LoginInterface />;
+        return  isBrowser && <LoginInterface />;
       }}
     </BrowserOnly>
   );
