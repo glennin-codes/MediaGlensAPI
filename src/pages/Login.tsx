@@ -6,7 +6,7 @@ import useIsBrowser from '@docusaurus/useIsBrowser';
 const Login = () => {
   const isBrowser = useIsBrowser();
   return (
-    <BrowserOnly fallback={<div>Loading...</div>}>
+    <BrowserOnly fallback={<div>{""}</div>}>
       {() => {
         return  isBrowser && <LoginInterface />;
       }}

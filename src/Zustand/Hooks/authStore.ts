@@ -1,6 +1,5 @@
 import axios from "axios";
 import { create } from "zustand";
-import useIsBrowser from '@docusaurus/useIsBrowser';
 
 type User = {
   email: string;
@@ -39,7 +38,8 @@ interface AuthState {
 }
 export const useAuthStore = create<AuthState>((set) => {
   // Check for existing authentication on load
-  const id = localStorage.getItem("id");
+  const id =
+  typeof window !== "undefined" ? localStorage.getItem("id") : null;
 
   const initialAuthState = {
     isAuthenticated: Boolean(id),
@@ -81,9 +81,10 @@ export const useAuthStore = create<AuthState>((set) => {
             error: "",
             isLoading: false,
           });
-
-          localStorage.setItem("id", id);
-          localStorage.setItem("name", name);
+          if (typeof window !== "undefined") {
+            localStorage.setItem("id", id);
+            localStorage.setItem("name", name);
+          }
         }
       } catch (error) {
         set({ isLoading: false });
@@ -221,9 +222,10 @@ export const useAuthStore = create<AuthState>((set) => {
             success:message,
             isLoading: false,
           });
-
-          localStorage.setItem("id", id);
-          localStorage.setItem("name", name);
+          if (typeof window !== "undefined") {
+            localStorage.setItem("id", id);
+            localStorage.setItem("name", name);
+          }
         }
         
       } catch (error) {
@@ -279,8 +281,10 @@ export const useAuthStore = create<AuthState>((set) => {
     logout: () => {
       set({ isAuthenticated: false, user: null });
 
-      localStorage.removeItem("id");
-      localStorage.removeItem("name");
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("id");
+        localStorage.removeItem("name");
+      }
     },
   };
 });
