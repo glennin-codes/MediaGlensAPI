@@ -8,7 +8,7 @@ import Layout from '@theme/Layout';
 
 const VerificationPage = () => {
 const  history=useHistory();
- const {verify,isAuthenticated,error,success,isLoading}=useAuthStore();
+ const {verify,error,success,isLoading}=useAuthStore();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
@@ -16,11 +16,12 @@ const  history=useHistory();
   const email = searchParams.get('email');
   const code = searchParams.get('code');
   const expirationTimestamp = searchParams.get('e');
+  console.log({email,code,expirationTimestamp});
   const fetchData = async () => {
     try {
       // Assuming verify returns a Promise
       await verify({ email, code, expirationTimestamp });
-      if (isAuthenticated) {
+      if (success) {
         history.push('/dashboard');
       }
      
@@ -41,7 +42,7 @@ useEffect(() => {
         <Layout>
     <div className="flex h-screen items-center justify-center">
     <div className="text-center">
-      {!success && !error && <h1 className="text-4xl font-bold mb-4">Verifying please wait </h1>}
+      {isLoading && <h1 className="text-4xl font-bold mb-4">Verifying please wait </h1>}
       {isLoading && <div className="animate-spin text-blue-500 text-2xl mb-4">Loading...</div>}
 
       {success && (
