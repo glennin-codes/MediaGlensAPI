@@ -1,6 +1,6 @@
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useFormik } from "formik";
@@ -9,8 +9,9 @@ import { useAuthStore } from "../Zustand/Hooks/authStore";
 import { AlertSignup } from "../components/ui/Alert/Alert-Signup";
 
 const SignupComponent = () => {
-  const { signUp, error, success, isLoading } = useAuthStore();
+  const { signUp, error,resetState, success, isLoading, } = useAuthStore();
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
 
   const formik = useFormik({
     initialValues: {

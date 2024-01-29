@@ -7,33 +7,24 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { useHistory } from "@docusaurus/router";
-import Snackbar from "../snackBar";
 import { useAuthStore } from "@site/src/Zustand/Hooks/authStore";
-// import { useAuthStore } from "../Zustand/Hooks/authStore";
-// import Snackbar from "../components/snackBar";
-// import BrowserOnly from "@docusaurus/BrowserOnly";
-// import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+import { AlertSignup } from "../ui/Alert/Alert-Signup";
 
 const LoginInterface: React.FC = () => {
   
-const{login,error,isLoading,isAuthenticated}=useAuthStore();
+const{login,error,isLoading,isAuthenticated,resetState}=useAuthStore();
 const history=useHistory();
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarType, setSnackbarType] = useState('success'); // 'success' or 'error'
 
+  useEffect(()=>{
+    resetState();
+
+  },[]);
   
-  const handleShowSnackbar = (message:string, type:string) => {
-    setSnackbarMessage(message);
-    setSnackbarType(type);
-  };
 
-  const handleCloseSnackbar = () => {
-    setSnackbarMessage('');
-    setSnackbarType('success'); // Reset type to default (success)
-  };
+
+ 
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -54,9 +45,9 @@ const history=useHistory();
       const performLogin = async () => {
         try {
           await login(values);
-          if (error) {
-            handleShowSnackbar(error, 'error');
-          }
+        if(isAuthenticated){
+          history.push('/dashboard')
+        }
           
         } catch (error) {
           console.error('Error during login:', error);
@@ -190,11 +181,9 @@ const history=useHistory();
           
            
         </div>
+        {error && <AlertSignup signupResult={error} oppener={Boolean(error)} />}
       </div>
-      {snackbarMessage && (
-        <Snackbar message={snackbarMessage} type={snackbarType} onClose={handleCloseSnackbar} />
-      )}
-      
+    
     </Layout>
    
   );

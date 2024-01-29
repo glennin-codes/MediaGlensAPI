@@ -51,7 +51,7 @@ export function AlertSignup({signupResult,oppener}:Props) {
             Success
           </Typography>
           <Typography  className="mt-2  font-medium text-[#2ec946]">
-            {signupResult}
+            {sign/upResult}
           </Typography>
         </>
       );

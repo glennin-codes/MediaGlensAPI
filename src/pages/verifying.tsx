@@ -3,13 +3,17 @@ import { useHistory, useLocation } from '@docusaurus/router';
 import React, { useEffect, useState } from 'react';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useAuthStore } from '../Zustand/Hooks/authStore';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 import Layout from '@theme/Layout';
 
 const VerificationPage = () => {
 const  history=useHistory();
- const {verify,error,success,isLoading}=useAuthStore();
+ const {verify,error,success,isLoading,resetState}=useAuthStore();
   const location = useLocation();
+
+  useEffect(()=>{
+    resetState();
+
+  },[]);
   const searchParams = new URLSearchParams(location.search);
 
   // Extract values from the query parameters

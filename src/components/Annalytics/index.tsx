@@ -2,63 +2,27 @@ import React, { useState, useEffect } from "react";
 import ClientIdComponent from "../ClientId";
 import axios from "axios";
 import Snackbar from "../snackBar";
+import { useStorageInforStore } from "@site/src/Zustand/Hooks/fileStorageInfo";
+import { AlertSignup } from "../ui/Alert/Alert-Signup";
+import { boolean } from "yup";
+import { Spinner } from "@material-tailwind/react";
 
 const StorageInfoCard = () => {
-  const [storageInfo, setStorageInfo] = useState({
-    totalItems: 0,
-    bytes: 0,
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [Error, setError] = useState(null);
+ 
+const {getStorageInfo,isLoading,Error,storageInfo}=useStorageInforStore();
+   const [snackbarType, setSnackbarType] = useState("success"); // 'success' or 'error'
 
-  const [snackbarMessage, setSnackbarMessage] = useState("");
-  const [snackbarType, setSnackbarType] = useState("success"); // 'success' or 'error'
 
-  const handleShowSnackbar = (message: string, type: string) => {
-    setSnackbarMessage(message);
-    setSnackbarType(type);
-  };
 
-  const handleCloseSnackbar = () => {
-    setSnackbarMessage("");
-    setSnackbarType("success"); // Reset type to default (success)
-  };
+ 
 
   useEffect(() => {
-    handleShowSnackbar("Error message", "error");
-    // Simulate an API call
-    // Replace this with your actual API endpoint and logic
-    const fetchStorageInfo = async () => {
-      // Reusable function to set withCredentials
-      axios.interceptors.request.use(
-        (config) => {
-          config.withCredentials = true;
-          return config;
-        },
-        (error) => {
-          return Promise.reject(error);
-        }
-      );
-      try {
-        const id = "65ae62ac46a98e112c936dc0";
-        const response = await axios.get(
-          `http://localhost:8080/api/users/${id}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    const id=localStorage.getItem('id')
 
-        const { bytes, totalItems } = await response?.data?.storage;
-        console.log(bytes);
-        setStorageInfo({
-          // totalCapacity: data.totalCapacity,
-          bytes,
-          totalItems,
-          // usedSpace: data.usedSpace,
-          // remainingSpace: data.totalCapacity - data.usedSpace,
-        });
+    // Simulate an API call
+    const fetchStorageInfo = async () => { 
+      try {
+        await getStorageInfo(id)
       } catch (error) {
         console.error("Error fetching storage information:", error);
       }
@@ -99,24 +63,25 @@ const StorageInfoCard = () => {
       {/* Display User usage card */}
       <div className="max-w-md mx-auto flex flex-col justify-center  rounded-xl overflow-hidden md:max-w-2xl mt-10 shadow-md p-5">
         <h2 className="text-2xl font-semibold mb-3">Storage Information</h2>
-        <p className="small-text text-lg px-2">
+        <p className="small-text text-lg px-2 ">
           Total Capacity: {totalCapacityGB} GB
         </p>
-        <p className="small-text text-lg">
-          Total Items Uploaded: {storageInfo.totalItems}
+        <p className="small-text text-lg flex flex-row gap-2">
+          Total Items Uploaded: {isLoading?<Spinner  className="h-6 w-6 inline some-custom-heading" />:storageInfo.totalItems}
         </p>
-        <p className="small-text">Used Space: {usedSpaceDisplay}</p>
+        <p className="small-text flex flex-row gap-2">Used Space:{isLoading?<Spinner  className="h-6 w-6 inline some-custom-heading" />:usedSpaceDisplay}</p>
         <p>
           {" "}
           <span className="small-text">Remaining Space: </span>
           <span
             className={`${
+              
               remainingSpaceGB <= warningThresholdMB
                 ? "text-red-400"
                 : "text-blue-400/100 "
             }`}
           >
-            {remainingSpaceDisplay}
+          {isLoading?<Spinner  className="h-6 w-6 inline some-custom-heading" />:remainingSpaceDisplay}
           </span>
         </p>
 
@@ -131,13 +96,7 @@ const StorageInfoCard = () => {
           />
         </div>
       </div>
-      {snackbarMessage && (
-        <Snackbar
-          message={snackbarMessage}
-          type={snackbarType}
-          onClose={handleCloseSnackbar}
-        />
-      )}
+     {Error && <AlertSignup signupResult={Error} oppener={Boolean(Error)}  />}
     </div>
   );
 };

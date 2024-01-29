@@ -35,6 +35,7 @@ interface AuthState {
   signUp: (newUser: newUser) => Promise<void>;
   verify:(verify:Verify) => Promise<void>;
   logout: () => void;
+  resetState:()=>void;
 }
 export const useAuthStore = create<AuthState>((set) => {
   // Check for existing authentication on load
@@ -53,6 +54,8 @@ export const useAuthStore = create<AuthState>((set) => {
   return {
     ...initialAuthState,
     login: async (values: Values) => {
+      set({error:""});
+      set({success:""});
       try {
         set({ isLoading: true });
         axios.interceptors.request.use(
@@ -130,6 +133,8 @@ export const useAuthStore = create<AuthState>((set) => {
     },
     signUp: async (newUser:newUser) => {
       set({ isLoading: true });
+      set({error:""});
+      set({success:""});
       try {
         const res = await axios.post(
           "http://localhost:8080/api/auth/signup",
@@ -198,6 +203,8 @@ console.log(message);
       }
     },
     verify:async(verify:Verify)=>{
+      set({error:""});
+      set({success:""})
       try {
         axios.interceptors.request.use(
           (config) => {
@@ -214,7 +221,7 @@ console.log(message);
         );
         const { id, name,message } = res.data;
 
-        if (res.status == 200 && id && name) {
+        if (res.status == 200 ) {
           set({
             isAuthenticated: true,
             user: {
@@ -289,5 +296,8 @@ console.log(message);
         localStorage.removeItem("name");
       }
     },
+resetState:()=>{
+  set({ ...initialAuthState });
+}
   };
 });
