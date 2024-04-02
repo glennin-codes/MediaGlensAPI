@@ -40,22 +40,24 @@ const history=useHistory();
         .required("Password is Required!"),
    
     }),
-    onSubmit: async(values) => 
-    useEffect(() => {
-      const performLogin = async () => {
-        try {
-          await login(values);
-        if(isAuthenticated){
-          history.push('/dashboard')
-        }
-          
-        } catch (error) {
-          console.error('Error during login:', error);
-        }
-      };
+    onSubmit: async(values) => {
 
-      performLogin();
-    }, [])
+      try {
+        await login(values);
+      if(isAuthenticated){
+        history.push('/dashboard')
+      }
+      console.log({error});
+        
+      } catch (error) {
+        console.error('Error during login:', error);
+      }
+    
+
+    }
+   
+         
+    
   });
 
   useEffect(() => {

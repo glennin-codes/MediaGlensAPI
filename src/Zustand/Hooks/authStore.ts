@@ -36,14 +36,15 @@ interface AuthState {
   verify:(verify:Verify) => Promise<void>;
   logout: () => void;
   resetState:()=>void;
+  checkAuthentication:()=>boolean;
 }
 export const useAuthStore = create<AuthState>((set) => {
   // Check for existing authentication on load
-  const id =
-  typeof window !== "undefined" ? localStorage.getItem("id") : null;
+  // const id =
+  // typeof window !== "undefined" ? localStorage.getItem("id") : null;
 
   const initialAuthState = {
-    isAuthenticated: Boolean(id),
+    isAuthenticated: false,
     user: null,
     isLoading: false,
     error: "",
@@ -98,7 +99,7 @@ export const useAuthStore = create<AuthState>((set) => {
         } else if (error.response) {
           // The request was made, but the server responded with an error status
           const status = error?.response?.status as number;
-          const message = error.response?.message?.error as string;
+          const message = error.response?.data?.error as string;
 
           if (status === 500) {
             
@@ -241,7 +242,8 @@ console.log(message);
         
       } catch (error) {
         set({ isLoading: false });
-        set({success:""})
+        set({const message = error.response?.message?.error as string;
+          success:""})
        
         if (axios.isCancel(error)) {
    
@@ -298,6 +300,14 @@ console.log(message);
     },
 resetState:()=>{
   set({ ...initialAuthState });
+},
+checkAuthentication :():boolean=>{
+  const token=localStorage.getItem('id');
+if (token){
+  return true;
+}else{
+  return false;
+}
 }
   };
 });

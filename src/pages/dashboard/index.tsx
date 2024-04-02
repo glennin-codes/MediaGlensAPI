@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Typography,
@@ -31,6 +31,8 @@ import ImagesGallery from "@site/src/components/MediaLibrary/Images";
 import VideosGallery from "@site/src/components/MediaLibrary/Videos";
 import FilesGallery from "@site/src/components/MediaLibrary/Files";
 import Layout from "@theme/Layout";
+import { useAuthStore } from "@site/src/Zustand/Hooks/authStore";
+import { useHistory } from "@docusaurus/router";
 
 type SidebarItem = {
   id: number;
@@ -84,6 +86,14 @@ function SidebarWithContentSeparator() {
   const [open, setOpen] = useState<number>(0);
   const [selectedContent, setSelectedContent] = useState<React.ReactNode >(<StorageInfoCard />);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const {checkAuthentication}=useAuthStore();
+  const history=useHistory();
+
+useEffect(()=>{
+  if(!checkAuthentication){
+    history.push('/Login')
+  }
+},[checkAuthentication,history]);
 
   const handleOpen = (value: number) => {
     setOpen((prevOpen) => (prevOpen === value ? 0 : value));
@@ -174,8 +184,8 @@ const handleItemClick = (label: string) => {
               />
             }
           >
-            <ListItem className="p-0 " selected={open === item.id}>
-              <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-transparent p-3">
+            <ListItem className="p-0  " selected={open === item.id}>
+              <AccordionHeader onClick={() => handleOpen(item.id)} className="border-0 bg-transparent p-3 flex items-center justify-center">
                 <ListItemPrefix className="subtitle ">{item.icon}</ListItemPrefix>
                 <Typography  className="mr-auto font-normal subtitle ">
                   {item.label}

@@ -1,54 +1,52 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
+import { isAuthenticated } from "./src/components/helpers/checkAuthentication";
 const config: Config = {
-
-  title: 'MediaGlens',
-  tagline: ' Cloud Application API covering everything from files,image and video uploads, storage, manipulations, optimizations to delivery.',
-  favicon: 'img/mediaglen.jpeg',
+  title: "MediaGlens",
+  tagline:
+    " Cloud Application API covering everything from files,image and video uploads, storage, manipulations, optimizations to delivery.",
+  favicon: "img/mediaglen.jpeg",
 
   // Set the production url of your site here
-  url: 'https://mediaglens.vercel.app/',
+  url: "https://mediaglens.vercel.app/",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'MediaGlens', // Usually your repo name.
+  organizationName: "facebook", // Usually your GitHub org/user name.
+  projectName: "MediaGlens", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/glennin-codes/MediaGlensAPI',
+          editUrl: "https://github.com/glennin-codes/MediaGlensAPI",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -56,74 +54,78 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: 'MediaGlens',
+      title: "MediaGlens",
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/mediaglen.jpeg',
+        alt: "My Site Logo",
+        src: "img/mediaglen.jpeg",
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left', 
-          label: 'Doc',
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          position: "left",
+          label: "Doc",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/subscription', label: 'Pricing', position: 'left'},
+        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/subscription", label: "Pricing", position: "left" },
         {
-          to:'/Login', label:'Login',position:'right'
+          to: isAuthenticated ? "/Dashboard" : "/Dashboard",
+          label: isAuthenticated ? "Dashboard" : "Login",
+          position: "right",
         },
         {
-          to:'/Signup', label:'Signup',position:'right'
+          to: "/Signup",
+          label: "Signup",
+          position: "right",
         },
         {
-          href: 'https://github.com/glennin-codes/MediaGlensAPI',
-          label: 'GitHub',
-          position: 'right',
+          href: "https://github.com/glennin-codes/MediaGlensAPI",
+          label: "GitHub",
+          position: "right",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Api',
-              to: '/docs/intro',
+              label: "Api",
+              to: "/docs/intro",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://github.com/glennin-codes/MediaGlensAPI',
+              label: "Stack Overflow",
+              href: "https://github.com/glennin-codes/MediaGlensAPI",
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/mediaglens',
+              label: "Discord",
+              href: "https://discordapp.com/invite/mediaglens",
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/mediaglens',
+              label: "Twitter",
+              href: "https://twitter.com/mediaglens",
             },
           ],
         },
         {
-          title: 'More',
+          title: "More",
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "Blog",
+              to: "/blog",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/glennin-codes/MediaGlensAPI',
+              label: "GitHub",
+              href: "https://github.com/glennin-codes/MediaGlensAPI",
             },
           ],
         },
@@ -148,7 +150,6 @@ const config: Config = {
       };
     },
   ],
-  
 };
 
 export default config;
