@@ -99,8 +99,7 @@ export const useAuthStore = create<AuthState>((set) => {
         } else if (error.response) {
           // The request was made, but the server responded with an error status
           const status = error?.response?.status as number;
-          const message = error.response?.data?.error as string;
-
+           const message = error.response?.data?.error as string;
           if (status === 500) {
             
             console.error("Internal Server Error:", message);
@@ -242,8 +241,7 @@ console.log(message);
         
       } catch (error) {
         set({ isLoading: false });
-        set({const message = error.response?.message?.error as string;
-          success:""})
+        set({success:""})
        
         if (axios.isCancel(error)) {
    
